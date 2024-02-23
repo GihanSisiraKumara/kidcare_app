@@ -1,8 +1,44 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:kidcare/screen/dashBord.dart';
 import 'package:kidcare/screen/regScreen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  LoginScreenState createState() => LoginScreenState();
+}
+
+class LoginScreenState extends State<LoginScreen> {
+  TextEditingController name = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  Future<void> login() async {
+    var uri = "http://10.0.2.2/kidcareuser/login.php";
+    final response = await http.post(Uri.parse(uri), body: {
+      'name': name.text,
+      'password': password.text,
+    });
+    if (response.statusCode == 200) {
+      final result = jsonDecode(response.body);
+      if (result == 'Success') {
+        print("Login Successfull!");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const DashBord(),
+          ),
+        );
+      } else {
+        print(result);
+      }
+    } else {
+      print("login Error");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +57,7 @@ class LoginScreen extends StatelessWidget {
             child: const Padding(
               padding: EdgeInsets.only(top: 60.0, left: 22),
               child: Text(
-                'Wellcome\nEDUCare App',
+                'Wellcome\nKidCare App',
                 style: TextStyle(
                     fontSize: 30,
                     color: Colors.white,
@@ -45,22 +81,24 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: name,
+                      decoration: const InputDecoration(
                           suffixIcon: Icon(
                             Icons.check,
                             color: Colors.grey,
                           ),
                           label: Text(
-                            'Gmail',
+                            'Name',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color(0xffB81736),
                             ),
                           )),
                     ),
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: password,
+                      decoration: const InputDecoration(
                           suffixIcon: Icon(
                             Icons.visibility_off,
                             color: Colors.grey,
@@ -93,6 +131,7 @@ class LoginScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         // Add your sign-in logic here
+                        login();
                       },
                       child: Container(
                         height: 55,

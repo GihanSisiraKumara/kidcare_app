@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/dashBord.dart';
+import 'package:http/http.dart' as http;
+import 'package:kidcare/screen/loginScreen.dart';
 
 class RegScreen extends StatefulWidget {
   const RegScreen({super.key});
@@ -9,10 +12,43 @@ class RegScreen extends StatefulWidget {
 }
 
 class RegScreenState extends State<RegScreen> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController poneController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  Future<void> insertrecord() async {
+    if (name.text != "" ||
+        phone.text != "" ||
+        email.text != "" ||
+        password.text != "") {
+      try {
+        String uri = "http://10.0.2.2/kidcareuser/insert_record.php";
+        var res = await http.post(Uri.parse(uri), body: {
+          "name": name.text,
+          "phone": phone.text,
+          "email": email.text,
+          "password": password.text
+        });
+        var response = jsonDecode(res.body);
+        if (response["success"] == "true") {
+          print("Insert Successfull!");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const LoginScreen(),
+            ),
+          );
+        } else {
+          print("Some Issue found!");
+        }
+      } catch (e) {
+        print(e);
+      }
+    } else {
+      print("please fill all the fileds");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +92,14 @@ class RegScreenState extends State<RegScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextField(
-                      controller: emailController,
+                      controller: name,
                       decoration: const InputDecoration(
                           suffixIcon: Icon(
                             Icons.check,
                             color: Colors.grey,
                           ),
                           label: Text(
-                            'Enter Student ID',
+                            'Name',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color(0xffB81736),
@@ -71,44 +107,44 @@ class RegScreenState extends State<RegScreen> {
                           )),
                     ),
                     TextField(
-                      controller: passwordController,
+                      controller: phone,
                       decoration: const InputDecoration(
                           suffixIcon: Icon(
                             Icons.check,
+                            color: Colors.grey,
+                          ),
+                          label: Text(
+                            'Phone Number',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          )),
+                    ),
+                    TextField(
+                      controller: email,
+                      decoration: const InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.check,
+                            color: Colors.grey,
+                          ),
+                          label: Text(
+                            'Email',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          )),
+                    ),
+                    TextField(
+                      controller: password,
+                      decoration: const InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.visibility_off,
                             color: Colors.grey,
                           ),
                           label: Text(
                             'Password',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffB81736),
-                            ),
-                          )),
-                    ),
-                    TextField(
-                      controller: poneController,
-                      decoration: const InputDecoration(
-                          suffixIcon: Icon(
-                            Icons.visibility_off,
-                            color: Colors.grey,
-                          ),
-                          label: Text(
-                            'pone Number',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffB81736),
-                            ),
-                          )),
-                    ),
-                    TextField(
-                      controller: surnameController,
-                      decoration: const InputDecoration(
-                          suffixIcon: Icon(
-                            Icons.visibility_off,
-                            color: Colors.grey,
-                          ),
-                          label: Text(
-                            ' surname',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color(0xffB81736),
@@ -123,11 +159,7 @@ class RegScreenState extends State<RegScreen> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DashBord()),
-                        );
+                        insertrecord();
                       },
                       child: Container(
                         height: 55,
@@ -167,7 +199,11 @@ class RegScreenState extends State<RegScreen> {
                           ),
                           TextButton(
                             onPressed: () {
-                              // Navigate to the login screen (LoginScreen)
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginScreen()),
+                              );
                             },
                             child: const Text(
                               "Sign in",
