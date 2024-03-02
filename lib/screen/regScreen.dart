@@ -14,21 +14,25 @@ class RegScreen extends StatefulWidget {
 class RegScreenState extends State<RegScreen> {
   TextEditingController name = TextEditingController();
   TextEditingController phone = TextEditingController();
-  TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController address = TextEditingController();
+  bool isParent = false;
+  bool isChild = false;
 
   Future<void> insertrecord() async {
-    if (name.text != "" ||
-        phone.text != "" ||
-        email.text != "" ||
-        password.text != "") {
+    if (name.text.isNotEmpty &&
+        phone.text.isNotEmpty &&
+        password.text.isNotEmpty &&
+        address.text.isNotEmpty) {
       try {
+        String tableName = isParent ? "parent" : "children";
         String uri = "http://10.0.2.2/kidcareuser/insert_record.php";
         var res = await http.post(Uri.parse(uri), body: {
           "name": name.text,
           "phone": phone.text,
-          "email": email.text,
-          "password": password.text
+          "password": password.text,
+          "address": address.text,
+          "table_name": tableName,
         });
         var response = jsonDecode(res.body);
         if (response["success"] == "true") {
@@ -122,25 +126,10 @@ class RegScreenState extends State<RegScreen> {
                           )),
                     ),
                     TextField(
-                      controller: email,
-                      decoration: const InputDecoration(
-                          suffixIcon: Icon(
-                            Icons.check,
-                            color: Colors.grey,
-                          ),
-                          label: Text(
-                            'Email',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffB81736),
-                            ),
-                          )),
-                    ),
-                    TextField(
                       controller: password,
                       decoration: const InputDecoration(
                           suffixIcon: Icon(
-                            Icons.visibility_off,
+                            Icons.check,
                             color: Colors.grey,
                           ),
                           label: Text(
@@ -150,6 +139,59 @@ class RegScreenState extends State<RegScreen> {
                               color: Color(0xffB81736),
                             ),
                           )),
+                    ),
+                    TextField(
+                      controller: address,
+                      decoration: const InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.visibility_off,
+                            color: Colors.grey,
+                          ),
+                          label: Text(
+                            'Address',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          )),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Checkbox(
+                          checkColor: Colors.white,
+                          activeColor: Colors.green,
+                          value: isParent,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              isParent = value ?? false;
+                              if (isParent) {
+                                isChild = false;
+                              }
+                            });
+                          },
+                        ),
+                        const Text(" Parent"),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Checkbox(
+                          checkColor: Colors.white,
+                          activeColor: Colors.green,
+                          value: isChild,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              isChild = value ?? false;
+                              if (isChild) {
+                                isParent = false;
+                              }
+                            });
+                          },
+                        ),
+                        const Text(" Child"),
+                      ],
                     ),
                     const SizedBox(
                       height: 10,

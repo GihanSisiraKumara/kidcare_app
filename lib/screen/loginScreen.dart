@@ -2,11 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:kidcare/screen/AdminBord.dart';
 import 'package:kidcare/screen/dashBord.dart';
 import 'package:kidcare/screen/regScreen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   LoginScreenState createState() => LoginScreenState();
@@ -23,20 +24,31 @@ class LoginScreenState extends State<LoginScreen> {
       'password': password.text,
     });
     if (response.statusCode == 200) {
-      final result = jsonDecode(response.body);
-      if (result == 'Success') {
+      // final result = jsonDecode(response.body);
+      Map<String, dynamic> data = json.decode(response.body);
+      if (data['isParent']) {
         print("Login Successfull!");
-        Navigator.push(
+        // Navigator.pushReplacementNamed(context, '/DashBord');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const AdminBord(),
+          ),
+        );
+      } else if (data['isChild']) {
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => const DashBord(),
           ),
         );
       } else {
-        print(result);
+        // Handle incorrect login credentials
+        print("Invalid login credentials");
       }
     } else {
-      print("login Error");
+      // Handle error
+      print("Error: ${response.statusCode}");
     }
   }
 

@@ -14,7 +14,11 @@ class DashBord extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 85, 11, 56),
+              //color: Color.fromARGB(255, 85, 11, 56),
+              gradient: LinearGradient(colors: [
+                Color.fromRGBO(186, 231, 205, 1),
+                Color.fromARGB(255, 19, 108, 68),
+              ]),
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(50),
               ),
@@ -43,7 +47,7 @@ class DashBord extends StatelessWidget {
             ),
           ),
           Container(
-            color: const Color.fromARGB(255, 85, 11, 56),
+            color: const Color.fromRGBO(186, 231, 205, 1),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
