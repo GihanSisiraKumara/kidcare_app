@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kidcare/screen/WelcomeScreen.dart';
+import 'package:kidcare/screen/loginScreen.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/login': (context) => const LoginScreen(),
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: ('inter'),

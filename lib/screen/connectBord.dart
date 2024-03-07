@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:kidcare/screen/loginScreen.dart';
 
-class RegScreen extends StatefulWidget {
-  const RegScreen({super.key});
+class ConnectScreen extends StatefulWidget {
+  const ConnectScreen({super.key, required String title});
 
   @override
   RegScreenState createState() => RegScreenState();
 }
 
-class RegScreenState extends State<RegScreen> {
+class RegScreenState extends State<ConnectScreen> {
   TextEditingController name = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -57,6 +57,17 @@ class RegScreenState extends State<RegScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(""),
+        backgroundColor: Colors.transparent,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xffB81736), Color(0xff281537)],
+            ),
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           Container(
@@ -69,9 +80,9 @@ class RegScreenState extends State<RegScreen> {
               ]),
             ),
             child: const Padding(
-              padding: EdgeInsets.only(top: 60.0, left: 22),
+              padding: EdgeInsets.only(top: 10.0, left: 80),
               child: Text(
-                'Create Your\nAccount',
+                'Connect Your\n     Parent',
                 style: TextStyle(
                     fontSize: 30,
                     color: Colors.white,
@@ -80,7 +91,7 @@ class RegScreenState extends State<RegScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200.0),
+            padding: const EdgeInsets.only(top: 140.0),
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -216,7 +227,7 @@ class RegScreenState extends State<RegScreen> {
                           ),
                           child: const Center(
                             child: Text(
-                              'SIGN UP',
+                              'Connect',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
@@ -228,38 +239,6 @@ class RegScreenState extends State<RegScreen> {
                       const SizedBox(
                         height: 80,
                       ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            const Text(
-                              "Already have an account?",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const LoginScreen()),
-                                );
-                              },
-                              child: const Text(
-                                "Sign in",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 17,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
                     ],
                   ),
                 ),
