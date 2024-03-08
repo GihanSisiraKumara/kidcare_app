@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class SheduleBord extends StatefulWidget {
   const SheduleBord({Key? key, required String title}) : super(key: key);
@@ -8,6 +9,7 @@ class SheduleBord extends StatefulWidget {
 }
 
 class _SheduleState extends State<SheduleBord> {
+  final TextEditingController _date = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,10 +69,11 @@ class _SheduleState extends State<SheduleBord> {
                         "Enter date & Time",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      const TextField(
-                        decoration: InputDecoration(
+                      TextField(
+                          controller: _date,
+                          decoration: const InputDecoration(
                             suffixIcon: Icon(
-                              Icons.check,
+                              Icons.calendar_today_rounded,
                               color: Colors.grey,
                             ),
                             label: Text(
@@ -79,8 +82,22 @@ class _SheduleState extends State<SheduleBord> {
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xffB81736),
                               ),
-                            )),
-                      ),
+                            ),
+                          ),
+                          onTap: () async {
+                            DateTime? pickeddate = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2000),
+                                lastDate: DateTime(2101));
+
+                            if (pickeddate != null) {
+                              setState(() {
+                                _date.text =
+                                    DateFormat('yyyy-MM-dd').format(pickeddate);
+                              });
+                            }
+                          }),
                       const TextField(
                         decoration: InputDecoration(
                             suffixIcon: Icon(
