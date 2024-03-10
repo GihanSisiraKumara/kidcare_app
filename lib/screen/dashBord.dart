@@ -17,6 +17,267 @@ class DashBord extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xffB81736), Color(0xff281537)],
+            ),
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 236, 115, 107),
+              ),
+              child: const Text(
+                "Logout",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: const Color.fromARGB(255, 221, 167, 167),
+          child: ListView(
+            children: [
+              DrawerHeader(
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 221, 167, 167),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    "assets/images/kidcare.png",
+                    width: 2,
+                    height: 2,
+                    alignment: Alignment.center,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.home,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Home ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DashBord(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.person,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Account ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DashBord(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.person_2,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Connect Owner ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ConnectScreen(
+                        title: '',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.location_pin,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Current Location ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DashBord(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.search,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Emergancy Servicess ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const eBord(
+                        title: '',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.notification_add,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Emergency Bell ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const bellBord(
+                        title: '',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.call,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Voice & Call ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const callBord(
+                        title: '',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.add,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Day Sheduling ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SheduleBord(
+                        title: '',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.help,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Help ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const DashBord(), // create help dart page
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -24,36 +285,15 @@ class DashBord extends StatelessWidget {
             decoration: const BoxDecoration(
               //color: Color.fromARGB(255, 85, 11, 56),
               gradient: LinearGradient(colors: [
-                Color(0xff281537),
                 Color(0xffB81736),
+                Color(0xff281537),
               ]),
               borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(50),
+                bottomRight: Radius.circular(60),
               ),
             ),
             child: Column(
               children: [
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/login');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 236, 115,
-                            107), // Change this to your desired color
-                      ),
-                      child: const Text(
-                        "Logout",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 30),
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
@@ -63,15 +303,13 @@ class DashBord extends StatelessWidget {
                           .headlineSmall
                           ?.copyWith(color: Colors.white)),
                   subtitle: Text('KIDCARE',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: Colors.white54)),
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: const Color.fromARGB(236, 239, 195, 195))),
                   trailing: const CircleAvatar(
                     radius: 30,
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 50),
               ],
             ),
           ),
@@ -79,8 +317,8 @@ class DashBord extends StatelessWidget {
             decoration: const BoxDecoration(
               //color: Color.fromARGB(255, 85, 11, 56),
               gradient: LinearGradient(colors: [
-                Color(0xff281537),
                 Color(0xffB81736),
+                Color(0xff281537),
               ]),
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(50),
@@ -91,7 +329,7 @@ class DashBord extends StatelessWidget {
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius:
-                      BorderRadius.only(topLeft: Radius.circular(200))),
+                      BorderRadius.only(topLeft: Radius.circular(160))),
               child: GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),

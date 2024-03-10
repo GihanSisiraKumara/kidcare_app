@@ -10,6 +10,12 @@ class SheduleBord extends StatefulWidget {
 
 class _SheduleState extends State<SheduleBord> {
   final TextEditingController _date = TextEditingController();
+  final TextEditingController _leaveHome = TextEditingController();
+  final TextEditingController _arrivalscool = TextEditingController();
+  final TextEditingController _dispatcherscool = TextEditingController();
+  final TextEditingController _inhome = TextEditingController();
+  final TextEditingController _inattenance = TextEditingController();
+  final TextEditingController _outattenance = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,27 +104,59 @@ class _SheduleState extends State<SheduleBord> {
                               });
                             }
                           }),
-                      const TextField(
+                      TextField(
+                        controller: _leaveHome,
                         decoration: InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.check,
+                          suffixIcon: GestureDetector(
+                            onTap: () async {
+                              TimeOfDay? pickedTime = await showTimePicker(
+                                context: context,
+                                initialTime: TimeOfDay.now(),
+                              );
+
+                              if (pickedTime != null) {
+                                setState(() {
+                                  _leaveHome.text = pickedTime.format(
+                                      context); // Format the selected time
+                                });
+                              }
+                            },
+                            child: const Icon(
+                              Icons.access_time,
                               color: Colors.grey,
                             ),
-                            label: Text(
-                              'Leave at Home',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xffB81736),
-                              ),
-                            )),
+                          ),
+                          label: const Text(
+                            'Leave at Home',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          ),
+                        ),
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _arrivalscool,
                         decoration: InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                            suffixIcon: GestureDetector(
+                              onTap: () async {
+                                TimeOfDay? pickedTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.now(),
+                                );
+                                if (pickedTime != null) {
+                                  setState(() {
+                                    _arrivalscool.text = pickedTime.format(
+                                        context); // Format the selected time
+                                  });
+                                }
+                              },
+                              child: const Icon(
+                                Icons.access_time,
+                                color: Colors.grey,
+                              ),
                             ),
-                            label: Text(
+                            label: const Text(
                               'Arrival at School',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -126,13 +164,28 @@ class _SheduleState extends State<SheduleBord> {
                               ),
                             )),
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _dispatcherscool,
                         decoration: InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                            suffixIcon: GestureDetector(
+                              onTap: () async {
+                                TimeOfDay? pickedTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.now(),
+                                );
+                                if (pickedTime != null) {
+                                  setState(() {
+                                    _dispatcherscool.text = pickedTime.format(
+                                        context); // Format the selected time
+                                  });
+                                }
+                              },
+                              child: const Icon(
+                                Icons.access_time,
+                                color: Colors.grey,
+                              ),
                             ),
-                            label: Text(
+                            label: const Text(
                               'Dispatcher at School',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -140,13 +193,28 @@ class _SheduleState extends State<SheduleBord> {
                               ),
                             )),
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _inhome,
                         decoration: InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                            suffixIcon: GestureDetector(
+                              onTap: () async {
+                                TimeOfDay? pickedTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.now(),
+                                );
+                                if (pickedTime != null) {
+                                  setState(() {
+                                    _inhome.text = pickedTime.format(
+                                        context); // Format the selected time
+                                  });
+                                }
+                              },
+                              child: const Icon(
+                                Icons.access_time,
+                                color: Colors.grey,
+                              ),
                             ),
-                            label: Text(
+                            label: const Text(
                               'In home Time',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -160,13 +228,28 @@ class _SheduleState extends State<SheduleBord> {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
-                      const TextField(
+                      TextField(
+                        controller: _inattenance,
                         decoration: InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                            suffixIcon: GestureDetector(
+                              onTap: () async {
+                                TimeOfDay? pickedTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.now(),
+                                );
+                                if (pickedTime != null) {
+                                  setState(() {
+                                    _inattenance.text = pickedTime.format(
+                                        context); // Format the selected time
+                                  });
+                                }
+                              },
+                              child: const Icon(
+                                Icons.access_time,
+                                color: Colors.grey,
+                              ),
                             ),
-                            label: Text(
+                            label: const Text(
                               'In  School',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -175,13 +258,28 @@ class _SheduleState extends State<SheduleBord> {
                             )),
                       ),
                       const SizedBox(height: 10),
-                      const TextField(
+                      TextField(
+                        controller: _outattenance,
                         decoration: InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                            suffixIcon: GestureDetector(
+                              onTap: () async {
+                                TimeOfDay? pickedTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.now(),
+                                );
+                                if (pickedTime != null) {
+                                  setState(() {
+                                    _outattenance.text = pickedTime.format(
+                                        context); // Format the selected time
+                                  });
+                                }
+                              },
+                              child: const Icon(
+                                Icons.access_time,
+                                color: Colors.grey,
+                              ),
                             ),
-                            label: Text(
+                            label: const Text(
                               'Out School',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
