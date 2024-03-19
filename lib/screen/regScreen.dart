@@ -68,30 +68,60 @@ class RegScreenState extends State<RegScreen> {
                 Color(0xff281537),
               ]),
             ),
-            child: const Padding(
-              padding: EdgeInsets.only(top: 60.0, left: 22),
-              child: Text(
-                'Create Your\nAccount',
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
+            child: Column(
+              children: [
+                const SizedBox(height: 70),
+                ListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 25),
+                  title: Text('Wellcome  To Kidcare!',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(color: Colors.white)),
+                  subtitle: Text('Register with Truth Details',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: const Color.fromARGB(251, 255, 254, 254))),
+                  trailing: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.transparent,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.asset(
+                        "assets/images/kidcare.png",
+                        width:
+                            60, // Adjust width and height to fit the circular avatar
+                        height: 60,
+                        alignment: Alignment.center,
+                        fit: BoxFit
+                            .cover, // Ensure the image covers the entire area
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+              ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200.0),
+            padding: const EdgeInsets.only(
+              top: 200.0,
+            ),
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40)),
-                color: Colors.white,
+                //color: Color.fromARGB(255, 252, 251, 251),
+                image: DecorationImage(
+                  image: AssetImage(
+                      "assets/images/red.jpg"), // Replace "my background image.jpg" with your image file
+                  fit: BoxFit.cover,
+                ),
               ),
               height: double.infinity,
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.only(left: 18.0, right: 18),
+                padding: const EdgeInsets.only(left: 20.0, right: 20),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -100,8 +130,8 @@ class RegScreenState extends State<RegScreen> {
                         controller: name,
                         decoration: const InputDecoration(
                             suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                              Icons.person,
+                              color: Color.fromARGB(255, 19, 18, 18),
                             ),
                             label: Text(
                               'Name',
@@ -115,8 +145,8 @@ class RegScreenState extends State<RegScreen> {
                         controller: phone,
                         decoration: const InputDecoration(
                             suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                              Icons.phone_android,
+                              color: Color.fromARGB(255, 27, 25, 25),
                             ),
                             label: Text(
                               'Phone Number',
@@ -130,8 +160,8 @@ class RegScreenState extends State<RegScreen> {
                         controller: password,
                         decoration: const InputDecoration(
                             suffixIcon: Icon(
-                              Icons.check,
-                              color: Colors.grey,
+                              Icons.visibility_off,
+                              color: Color.fromARGB(255, 13, 12, 12),
                             ),
                             label: Text(
                               'Password',
@@ -146,7 +176,7 @@ class RegScreenState extends State<RegScreen> {
                         decoration: const InputDecoration(
                             suffixIcon: Icon(
                               Icons.visibility_off,
-                              color: Colors.grey,
+                              color: Color.fromARGB(255, 21, 19, 19),
                             ),
                             label: Text(
                               'Address',
@@ -161,7 +191,7 @@ class RegScreenState extends State<RegScreen> {
                         children: [
                           Checkbox(
                             checkColor: Colors.white,
-                            activeColor: Colors.green,
+                            activeColor: const Color.fromARGB(255, 233, 35, 52),
                             value: isParent,
                             onChanged: (bool? value) {
                               setState(() {
@@ -172,15 +202,21 @@ class RegScreenState extends State<RegScreen> {
                               });
                             },
                           ),
-                          const Text(" Parent"),
+                          const Text(
+                            " Parent",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          ),
                         ],
                       ),
-                      const SizedBox(height: 10),
+                      //const SizedBox(height: 0),
                       Row(
                         children: [
                           Checkbox(
                             checkColor: Colors.white,
-                            activeColor: Colors.green,
+                            activeColor: const Color.fromARGB(255, 233, 35, 52),
                             value: isChild,
                             onChanged: (bool? value) {
                               setState(() {
@@ -191,15 +227,21 @@ class RegScreenState extends State<RegScreen> {
                               });
                             },
                           ),
-                          const Text(" Child"),
+                          const Text(
+                            " Child",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const SizedBox(
-                        height: 70,
-                      ),
+                      // const SizedBox(
+                      // height: 70,
+                      // ),
                       GestureDetector(
                         onTap: () {
                           insertrecord();
@@ -238,7 +280,7 @@ class RegScreenState extends State<RegScreen> {
                               "Already have an account?",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.grey),
+                                  color: Color.fromARGB(255, 26, 27, 29)),
                             ),
                             TextButton(
                               onPressed: () {
@@ -254,7 +296,7 @@ class RegScreenState extends State<RegScreen> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 17,
-                                    color: Colors.black),
+                                    color: Color.fromARGB(255, 63, 108, 157)),
                               ),
                             ),
                           ],

@@ -66,15 +66,38 @@ class LoginScreenState extends State<LoginScreen> {
                 Color(0xff281537),
               ]),
             ),
-            child: const Padding(
-              padding: EdgeInsets.only(top: 60.0, left: 22),
-              child: Text(
-                'Wellcome\nKidCare App',
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 70),
+                ListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 25),
+                  title: const Text(
+                    'Login To\nKidcare App',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  trailing: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.transparent,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.asset(
+                        "assets/images/kidcare.png",
+                        width:
+                            60, // Adjust width and height to fit the circular avatar
+                        height: 60,
+                        alignment: Alignment.center,
+                        fit: BoxFit
+                            .cover, // Ensure the image covers the entire area
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+              ],
             ),
           ),
           Padding(
@@ -84,12 +107,16 @@ class LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40)),
+                image: DecorationImage(
+                  image: AssetImage("assets/images/red.jpg"), // R
+                  fit: BoxFit.cover,
+                ),
                 color: Colors.white,
               ),
               height: double.infinity,
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.only(left: 18.0, right: 18),
+                padding: const EdgeInsets.only(left: 20.0, right: 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -97,8 +124,8 @@ class LoginScreenState extends State<LoginScreen> {
                       controller: name,
                       decoration: const InputDecoration(
                           suffixIcon: Icon(
-                            Icons.check,
-                            color: Colors.grey,
+                            Icons.person,
+                            color: Color.fromARGB(255, 18, 18, 18),
                           ),
                           label: Text(
                             'Name',
@@ -113,7 +140,7 @@ class LoginScreenState extends State<LoginScreen> {
                       decoration: const InputDecoration(
                           suffixIcon: Icon(
                             Icons.visibility_off,
-                            color: Colors.grey,
+                            color: Color.fromARGB(255, 6, 5, 5),
                           ),
                           label: Text(
                             'Password',
@@ -133,12 +160,12 @@ class LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 17,
-                          color: Color(0xff281537),
+                          color: Color.fromARGB(255, 94, 118, 198),
                         ),
                       ),
                     ),
                     const SizedBox(
-                      height: 70,
+                      height: 60,
                     ),
                     GestureDetector(
                       onTap: () {
@@ -167,7 +194,28 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 150,
+                      height: 20,
+                    ),
+                    const Text(
+                      'Login with Social Media',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                          color: Color.fromARGB(255, 44, 15, 15)),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Tab(icon: Image.asset("assets/images/facebook1.png")),
+                        Tab(icon: Image.asset("assets/images/instergram.png")),
+                        Tab(icon: Image.asset("assets/images/linked.png")),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 50,
                     ),
                     Align(
                       alignment: Alignment.bottomRight,
@@ -179,7 +227,7 @@ class LoginScreenState extends State<LoginScreen> {
                             "Don't have an account?",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.grey,
+                              color: Color.fromARGB(255, 33, 25, 25),
                             ),
                           ),
                           TextButton(
@@ -196,7 +244,7 @@ class LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 17,
-                                color: Colors.black,
+                                color: Color.fromARGB(255, 66, 94, 172),
                               ),
                             ),
                           ),
