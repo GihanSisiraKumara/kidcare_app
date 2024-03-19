@@ -9,6 +9,7 @@ class SheduleBord extends StatefulWidget {
 }
 
 class _SheduleState extends State<SheduleBord> {
+  final TextEditingController _name = TextEditingController();
   final TextEditingController _date = TextEditingController();
   final TextEditingController _leaveHome = TextEditingController();
   final TextEditingController _arrivalscool = TextEditingController();
@@ -74,6 +75,22 @@ class _SheduleState extends State<SheduleBord> {
                       const Text(
                         "Enter date & Time",
                         style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextField(
+                        controller: _name,
+                        decoration: const InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.person,
+                            color: Colors.grey,
+                          ),
+                          label: Text(
+                            'Your user name',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          ),
+                        ),
                       ),
                       TextField(
                           controller: _date,

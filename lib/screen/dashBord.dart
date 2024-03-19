@@ -304,12 +304,12 @@ class DashBord extends StatelessWidget {
                           ?.copyWith(color: Colors.white)),
                   subtitle: Text('KIDCARE',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: const Color.fromARGB(236, 239, 195, 195))),
+                          color: const Color.fromARGB(251, 255, 254, 254))),
                   trailing: const CircleAvatar(
                     radius: 30,
                   ),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
               ],
             ),
           ),
@@ -327,9 +327,11 @@ class DashBord extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.only(topLeft: Radius.circular(160))),
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(160),
+                ),
+              ),
               child: GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
