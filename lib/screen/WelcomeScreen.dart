@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kidcare/screen/aboutBord.dart';
 import 'package:kidcare/screen/loginScreen.dart';
-import 'package:kidcare/screen/regScreen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -18,8 +18,8 @@ class WelcomeScreen extends StatelessWidget {
         ])),
         child: Column(children: [
           const Padding(
-            padding: EdgeInsets.only(top: 200.0),
-            //child: Image(image: AssetImage('assets/logo.png')),
+            padding: EdgeInsets.only(top: 180.0),
+            //child: Image(image: AssetImage('assets/images/kidcare.png')),
           ),
           const SizedBox(
             height: 100,
@@ -59,8 +59,12 @@ class WelcomeScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const RegScreen()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const aboutBord(
+                            title: '',
+                          )));
             },
             child: Container(
               height: 53,
