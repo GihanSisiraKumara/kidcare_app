@@ -76,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
               child: const Center(
                 child: Text(
-                  'SIGN UP',
+                  'START',
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
