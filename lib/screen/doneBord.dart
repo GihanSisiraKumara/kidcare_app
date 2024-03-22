@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/dayBord.dart';
+import 'package:kidcare/screen/regScreen.dart';
 import 'package:lottie/lottie.dart';
 
-class aboutBord extends StatelessWidget {
-  const aboutBord({super.key, required String title});
+class doneBord extends StatelessWidget {
+  const doneBord({super.key, required String title});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,11 @@ class aboutBord extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              child: Lottie.asset('assets/animations/Animation - 0.json'),
+              child: Lottie.asset('assets/animations/Animation - 2.json'),
             ),
             const SizedBox(height: 20),
             const Text(
-              "Welcome to kidcare",
+              "Done!",
               style: TextStyle(
                 color: Color.fromARGB(255, 185, 4, 4),
                 fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class aboutBord extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const dayBord(
+                      builder: (context) => const RegScreen(
                             title: '',
                           )),
                 );
@@ -56,7 +56,7 @@ class aboutBord extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'Next',
+                    'Register',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

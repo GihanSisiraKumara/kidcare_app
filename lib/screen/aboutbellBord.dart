@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/dayBord.dart';
+import 'package:kidcare/screen/doneBord.dart';
 import 'package:lottie/lottie.dart';
 
-class aboutBord extends StatelessWidget {
-  const aboutBord({super.key, required String title});
+class aboutbellBord extends StatelessWidget {
+  const aboutbellBord({super.key, required String title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 244, 215, 213),
+      //backgroundColor: const Color.fromARGB(255, 244, 215, 213),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 244, 215, 213),
+        //backgroundColor: const Color.fromARGB(255, 244, 215, 213),
         title: const Text(""),
       ),
       body: Center(
         child: Column(
           children: [
             Container(
-              child: Lottie.asset('assets/animations/Animation - 0.json'),
+              child: Lottie.asset('assets/animations/Animation - bell.json'),
             ),
             const SizedBox(height: 20),
             const Text(
-              "Welcome to kidcare",
+              "Bell Approach!",
               style: TextStyle(
                 color: Color.fromARGB(255, 185, 4, 4),
                 fontWeight: FontWeight.bold,
@@ -44,9 +44,10 @@ class aboutBord extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const dayBord(
-                            title: '',
-                          )),
+                    builder: (context) => const doneBord(
+                      title: '',
+                    ),
+                  ),
                 );
               },
               style: ButtonStyle(

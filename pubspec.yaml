@@ -70,6 +70,11 @@ flutter:
     - assets/images/red.jpg
     - assets/images/red2.jpg
     - assets/animations/Animation - 0.json
+    - assets/animations/Animation - dayshed.json
+    - assets/animations/Animation - location.json
+    - assets/animations/Animation - bell.json
+    - assets/animations/Animation - 2.json
+    
     
     
     

@@ -236,7 +236,9 @@ class LoginScreenState extends State<LoginScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const RegScreen()),
+                                    builder: (context) => const RegScreen(
+                                          title: '',
+                                        )),
                               );
                             },
                             child: const Text(

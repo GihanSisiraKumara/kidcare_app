@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/dayBord.dart';
+import 'package:kidcare/screen/aboutbellBord.dart';
 import 'package:lottie/lottie.dart';
 
-class aboutBord extends StatelessWidget {
-  const aboutBord({super.key, required String title});
+class aboutlocationBord extends StatelessWidget {
+  const aboutlocationBord({super.key, required String title});
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +17,19 @@ class aboutBord extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              child: Lottie.asset('assets/animations/Animation - 0.json'),
+              child:
+                  Lottie.asset('assets/animations/Animation - location.json'),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 50),
             const Text(
-              "Welcome to kidcare",
+              "Share Your Location!!",
               style: TextStyle(
                 color: Color.fromARGB(255, 185, 4, 4),
                 fontWeight: FontWeight.bold,
                 fontSize: 30,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
             const Text(
               "Your child's safety, our priority\n A secure mobile app designed to protect and care for children, ensuring peace of mind for parents everywhere.",
               textAlign: TextAlign.center,
@@ -38,15 +39,16 @@ class aboutBord extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 100),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const dayBord(
-                            title: '',
-                          )),
+                    builder: (context) => const aboutbellBord(
+                      title: '',
+                    ),
+                  ),
                 );
               },
               style: ButtonStyle(
