@@ -288,6 +288,7 @@ class DashBord extends StatelessWidget {
                 Color(0xffB81736),
                 Color(0xff281537),
               ]),
+
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(60),
               ),
@@ -327,6 +328,10 @@ class DashBord extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
+                // image: DecorationImage(
+                // image: AssetImage("assets/images/red.jpg"), // R
+                // fit: BoxFit.cover,
+                // ),
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(160),
