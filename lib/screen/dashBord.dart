@@ -306,8 +306,21 @@ class DashBord extends StatelessWidget {
                   subtitle: Text('KIDCARE',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: const Color.fromARGB(251, 255, 254, 254))),
-                  trailing: const CircleAvatar(
+                  trailing: CircleAvatar(
                     radius: 30,
+                    backgroundColor: Colors.transparent,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.asset(
+                        "assets/images/kidcare.png",
+                        width:
+                            60, // Adjust width and height to fit the circular avatar
+                        height: 60,
+                        alignment: Alignment.center,
+                        fit: BoxFit
+                            .cover, // Ensure the image covers the entire area
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -451,7 +464,7 @@ class DashBord extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              const locationBord(title: 'Analytics & Exam'),
+                              const LocationBoard(title: 'Analytics & Exam'),
                         ),
                       );
                     },
