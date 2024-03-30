@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kidcare/screen/bellBord.dart';
-import 'package:kidcare/screen/callBord.dart';
+import 'package:kidcare/screen/callBoard.dart';
 import 'package:kidcare/screen/connectBord.dart';
 import 'package:kidcare/screen/eBord.dart';
 import 'package:kidcare/screen/locationBord.dart';
@@ -220,7 +220,7 @@ class DashBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const callBord(
+                      builder: (context) => const CallBoard(
                         title: '',
                       ),
                     ),
@@ -448,7 +448,7 @@ class DashBord extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              const callBord(title: 'Analytics & Exam'),
+                              const CallBoard(title: 'Analytics & Exam'),
                         ),
                       );
                     },

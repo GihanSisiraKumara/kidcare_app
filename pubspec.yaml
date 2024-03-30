@@ -42,6 +42,8 @@ dependencies:
   geolocator: ^7.6.2
   share: ^2.0.4
   flutter_slidable: ^3.1.0
+  url_launcher: ^6.2.5
+  flutter_phone_direct_caller: ^2.1.1
   
 
 dev_dependencies:
@@ -79,6 +81,7 @@ flutter:
     - assets/animations/Animation - location.json
     - assets/animations/Animation - bell.json
     - assets/animations/Animation - 2.json
+    - assets/images/call.avif
     
     
     
