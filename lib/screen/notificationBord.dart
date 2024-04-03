@@ -8,7 +8,7 @@ class notificationBord extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 233, 178, 173),
+      backgroundColor: Color.fromARGB(255, 211, 149, 143),
       appBar: AppBar(
         title: const Text("Notification"),
       ),
