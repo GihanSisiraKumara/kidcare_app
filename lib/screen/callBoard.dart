@@ -1,34 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class notificationBord extends StatelessWidget {
-  const notificationBord({super.key, required String title});
+class CallBoard extends StatefulWidget {
+  const CallBoard({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _CallBoardState createState() => _CallBoardState();
+}
+
+class _CallBoardState extends State<CallBoard> {
+  final Uri dialNumber = Uri(scheme: 'tel', path: '0767301727');
+
+  void callNumber() async {
+    await launch(dialNumber.toString());
+  }
+
+  void directCall() async {
+    await FlutterPhoneDirectCaller.callNumber('0767301727');
+  }
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 233, 178, 173),
       appBar: AppBar(
-        title: const Text("Notification"),
+        title: const Text('Call'),
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.search),
-                  hintText: "Search notification",
-                  contentPadding: const EdgeInsets.all(16.0),
-                  fillColor: Colors.black12,
-                  filled: true,
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(20.0))),
-            ),
-          ),
-          const SizedBox(height: 10),
           Expanded(
             child: ListView.separated(
               itemBuilder: (context, index) {
@@ -56,7 +60,7 @@ class notificationBord extends StatelessWidget {
                         EdgeInsets.symmetric(horizontal: size.width * 0.08),
                     leading: const CircleAvatar(
                       radius: 25,
-                      backgroundImage: AssetImage("assets/images/kidcare.png"),
+                      backgroundImage: AssetImage("assets/images/call.avif"),
                     ),
                     title: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,7 +89,31 @@ class notificationBord extends StatelessWidget {
                     indent: size.width * .08,
                     endIndent: size.width * .08,
                   )),
-              itemCount: 20,
+              itemCount: 5,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Center(
+              child: SizedBox(
+                width: 100,
+                height: 100,
+                child: ElevatedButton.icon(
+                  onPressed: callNumber,
+                  icon: const Icon(
+                    Icons.call,
+                    color: Colors.red,
+                  ),
+                  label: const Text(
+                    'Call',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 231, 227, 227),
+                    shape: const CircleBorder(),
+                  ),
+                ),
+              ),
             ),
           ),
         ],

@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:kidcare/screen/loginScreen.dart';
 
 class RegScreen extends StatefulWidget {
-  const RegScreen({super.key});
+  const RegScreen({super.key, required String title});
 
   @override
   RegScreenState createState() => RegScreenState();

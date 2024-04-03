@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kidcare/screen/bellBord.dart';
-import 'package:kidcare/screen/callBord.dart';
+import 'package:kidcare/screen/callBoard.dart';
 import 'package:kidcare/screen/connectBord.dart';
 import 'package:kidcare/screen/eBord.dart';
 import 'package:kidcare/screen/locationBord.dart';
@@ -220,7 +220,7 @@ class DashBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const callBord(
+                      builder: (context) => const CallBoard(
                         title: '',
                       ),
                     ),
@@ -288,6 +288,7 @@ class DashBord extends StatelessWidget {
                 Color(0xffB81736),
                 Color(0xff281537),
               ]),
+
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(60),
               ),
@@ -305,8 +306,21 @@ class DashBord extends StatelessWidget {
                   subtitle: Text('KIDCARE',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: const Color.fromARGB(251, 255, 254, 254))),
-                  trailing: const CircleAvatar(
+                  trailing: CircleAvatar(
                     radius: 30,
+                    backgroundColor: Colors.transparent,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.asset(
+                        "assets/images/kidcare.png",
+                        width:
+                            60, // Adjust width and height to fit the circular avatar
+                        height: 60,
+                        alignment: Alignment.center,
+                        fit: BoxFit
+                            .cover, // Ensure the image covers the entire area
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -327,6 +341,10 @@ class DashBord extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
+                // image: DecorationImage(
+                // image: AssetImage("assets/images/red.jpg"), // R
+                // fit: BoxFit.cover,
+                // ),
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(160),
@@ -430,7 +448,7 @@ class DashBord extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              const callBord(title: 'Analytics & Exam'),
+                              const CallBoard(title: 'Analytics & Exam'),
                         ),
                       );
                     },
@@ -446,7 +464,7 @@ class DashBord extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              const locationBord(title: 'Analytics & Exam'),
+                              const LocationBoard(title: 'Analytics & Exam'),
                         ),
                       );
                     },

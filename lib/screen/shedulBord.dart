@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 class SheduleBord extends StatefulWidget {
@@ -17,6 +20,55 @@ class _SheduleState extends State<SheduleBord> {
   final TextEditingController _inhome = TextEditingController();
   final TextEditingController _inattenance = TextEditingController();
   final TextEditingController _outattenance = TextEditingController();
+
+  Future<void> shedulrecord() async {
+    if (_name.text != "" ||
+        _date.text != "" ||
+        _leaveHome.text != "" ||
+        _arrivalscool.text != "" ||
+        _dispatcherscool.text != "" ||
+        _inhome.text != "" ||
+        _inattenance.text != "" ||
+        _outattenance.text != "") {
+      try {
+        String uri = "http://10.0.2.2/kidcareuser/sheduling.php";
+        var res = await http.post(Uri.parse(uri), body: {
+          "name": _name.text,
+          "date": _date.text,
+          "leavehome": _leaveHome.text,
+          "arrivalschool": _arrivalscool.text,
+          "dispachscool": _dispatcherscool.text,
+          "inhome": _inhome.text,
+          "inattendance": _inattenance.text,
+          "outattendance": _outattenance.text
+        });
+        var response = jsonDecode(res.body);
+        if (response["success"] == "true") {
+          print("Insert Successfull!");
+          // Navigator.push(
+          // context,
+          // MaterialPageRoute(
+          // builder: (context) => const MyHomePage(),
+          // ),
+          // );
+        } else {
+          print("Some Issue found!");
+        }
+      } catch (e) {
+        print(e);
+      }
+    } else {
+      print("please fill all the fileds");
+      // Navigator.push
+      // (
+      // context,
+      // MaterialPageRoute(
+      // builder: (context) => MyHomePage(),
+      // ),
+      // );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +110,10 @@ class _SheduleState extends State<SheduleBord> {
             padding: const EdgeInsets.only(top: 150.0),
             child: Container(
               decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/red.jpg"),
+                  fit: BoxFit.cover,
+                ),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40)),
@@ -81,7 +137,7 @@ class _SheduleState extends State<SheduleBord> {
                         decoration: const InputDecoration(
                           suffixIcon: Icon(
                             Icons.person,
-                            color: Colors.grey,
+                            color: Color.fromARGB(255, 13, 11, 11),
                           ),
                           label: Text(
                             'Your user name',
@@ -97,7 +153,7 @@ class _SheduleState extends State<SheduleBord> {
                           decoration: const InputDecoration(
                             suffixIcon: Icon(
                               Icons.calendar_today_rounded,
-                              color: Colors.grey,
+                              color: Color.fromARGB(255, 20, 17, 17),
                             ),
                             label: Text(
                               'Day',
@@ -140,7 +196,7 @@ class _SheduleState extends State<SheduleBord> {
                             },
                             child: const Icon(
                               Icons.access_time,
-                              color: Colors.grey,
+                              color: Color.fromARGB(255, 15, 12, 12),
                             ),
                           ),
                           label: const Text(
@@ -170,7 +226,7 @@ class _SheduleState extends State<SheduleBord> {
                               },
                               child: const Icon(
                                 Icons.access_time,
-                                color: Colors.grey,
+                                color: Color.fromARGB(255, 22, 18, 18),
                               ),
                             ),
                             label: const Text(
@@ -199,7 +255,7 @@ class _SheduleState extends State<SheduleBord> {
                               },
                               child: const Icon(
                                 Icons.access_time,
-                                color: Colors.grey,
+                                color: Color.fromARGB(255, 13, 11, 11),
                               ),
                             ),
                             label: const Text(
@@ -228,7 +284,7 @@ class _SheduleState extends State<SheduleBord> {
                               },
                               child: const Icon(
                                 Icons.access_time,
-                                color: Colors.grey,
+                                color: Color.fromARGB(255, 20, 17, 17),
                               ),
                             ),
                             label: const Text(
@@ -263,7 +319,7 @@ class _SheduleState extends State<SheduleBord> {
                               },
                               child: const Icon(
                                 Icons.access_time,
-                                color: Colors.grey,
+                                color: Color.fromARGB(255, 14, 11, 11),
                               ),
                             ),
                             label: const Text(
@@ -278,35 +334,72 @@ class _SheduleState extends State<SheduleBord> {
                       TextField(
                         controller: _outattenance,
                         decoration: InputDecoration(
-                            suffixIcon: GestureDetector(
-                              onTap: () async {
-                                TimeOfDay? pickedTime = await showTimePicker(
-                                  context: context,
-                                  initialTime: TimeOfDay.now(),
-                                );
-                                if (pickedTime != null) {
-                                  setState(() {
-                                    _outattenance.text = pickedTime.format(
-                                        context); // Format the selected time
-                                  });
-                                }
-                              },
-                              child: const Icon(
-                                Icons.access_time,
-                                color: Colors.grey,
-                              ),
+                          suffixIcon: GestureDetector(
+                            onTap: () async {
+                              TimeOfDay? pickedTime = await showTimePicker(
+                                context: context,
+                                initialTime: TimeOfDay.now(),
+                              );
+                              if (pickedTime != null) {
+                                setState(() {
+                                  _outattenance.text = pickedTime.format(
+                                      context); // Format the selected time
+                                });
+                              }
+                            },
+                            child: const Icon(
+                              Icons.access_time,
+                              color: Color.fromARGB(255, 11, 10, 10),
                             ),
-                            label: const Text(
-                              'Out School',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xffB81736),
-                              ),
-                            )),
+                          ),
+                          label: const Text(
+                            'Out School',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xffB81736),
+                            ),
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 40),
+                      ElevatedButton(
+                        onPressed: () {
+                          // shedulrecord();
+                          // Navigator.push(
+                          // context,
+                          // MaterialPageRoute(
+                          // builder: (context) => const eBord(
+                          // title: '',
+                          // )),
+                          // );
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              const Color.fromARGB(255, 209, 56, 45)),
+                        ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Pin your Way',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                            Icon(
+                              Icons.location_on,
+                              color: Colors.white,
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          shedulrecord();
+                        },
                         child: Container(
                           height: 55,
                           width: 300,
@@ -323,7 +416,7 @@ class _SheduleState extends State<SheduleBord> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
-                                  color: Colors.white),
+                                  color: Color.fromARGB(255, 247, 241, 241)),
                             ),
                           ),
                         ),
