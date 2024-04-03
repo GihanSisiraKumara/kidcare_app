@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kidcare/screen/shedulBord.dart';
 
 class viewBord extends StatelessWidget {
   const viewBord({super.key, required String title});
@@ -15,37 +16,67 @@ class viewBord extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               const CircleAvatar(
                 radius: 70,
-                //backgroundImage: AssetImage('assets/images/user.JPG'),
+                backgroundImage: AssetImage('assets/images/kidcare.png'),
               ),
               const SizedBox(height: 20),
-              itemProfile('Name', 'Ahad Hashmi', CupertinoIcons.person),
-              const SizedBox(height: 10),
-              itemProfile('Phone', '03107085816', CupertinoIcons.phone),
-              const SizedBox(height: 10),
               itemProfile(
-                  'Address', 'abc address, xyz city', CupertinoIcons.location),
+                'Name',
+                'Ahad Hashmi',
+                CupertinoIcons.person,
+              ),
               const SizedBox(height: 10),
-              itemProfile('Email', 'ahadhashmideveloper@gmail.com',
-                  CupertinoIcons.mail),
+              itemProfile('Date', '2024/03/23', CupertinoIcons.calendar),
+              const SizedBox(height: 10),
+              itemProfile('Leave at Home', '07. 10 A.M.', CupertinoIcons.time),
+              const SizedBox(height: 10),
+              itemProfile('Arival at Scool', '07.30 A.M', CupertinoIcons.time),
               const SizedBox(
                 height: 20,
               ),
-              itemProfile('Email', 'ahadhashmideveloper@gmail.com',
-                  CupertinoIcons.mail),
+              itemProfile(
+                  'Dispatcher at School', '13.30 P.M', CupertinoIcons.time),
+              const SizedBox(
+                height: 20,
+              ),
+              itemProfile('In Home', '14.30 P.M', CupertinoIcons.time),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                "Attendance",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              itemProfile('In School', '07.30 A.M', CupertinoIcons.time),
+              const SizedBox(
+                height: 20,
+              ),
+              itemProfile('Out School', '13.35 P.M', CupertinoIcons.time),
               const SizedBox(
                 height: 20,
               ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SheduleBord(
+                            title: '',
+                          ),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(15),
                     ),
-                    child: const Text('Edit Profile')),
+                    child: const Text('Edit Sheduling')),
               )
             ],
           ),
