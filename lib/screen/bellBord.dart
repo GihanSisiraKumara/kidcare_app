@@ -42,7 +42,7 @@ class bellBord extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               itemProfile(
-                'Name',
+                'Name                          2h',
                 'Ahad Hashmi',
                 CupertinoIcons.person,
               ),

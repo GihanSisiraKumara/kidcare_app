@@ -92,25 +92,15 @@ class _CallBoardState extends State<CallBoard> {
               itemCount: 5,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Center(
-              child: SizedBox(
-                width: 100,
-                height: 100,
-                child: ElevatedButton.icon(
-                  onPressed: callNumber,
-                  icon: const Icon(
-                    Icons.call,
-                    color: Colors.red,
-                  ),
-                  label: const Text(
-                    'Call',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 231, 227, 227),
-                    shape: const CircleBorder(),
+          GestureDetector(
+            onTap: callNumber,
+            child: const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Center(
+                child: SizedBox(
+                  child: CircleAvatar(
+                    radius: 70,
+                    backgroundImage: AssetImage('assets/images/call1.jpg'),
                   ),
                 ),
               ),
