@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:kidcare/screen/AdminBord.dart';
 import 'package:kidcare/screen/dashBord.dart';
 import 'package:kidcare/screen/regScreen.dart';
+import 'package:kidcare/screen2/adminBord.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -32,7 +32,7 @@ class LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const AdminBord(),
+            builder: (context) => const adminBord(),
           ),
         );
       } else if (data['isChild']) {
