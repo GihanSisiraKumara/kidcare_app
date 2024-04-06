@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kidcare/screen/location_service.dart';
+import 'package:kidcare/screen/shedulBord.dart';
 
 class pinwayBord extends StatefulWidget {
   const pinwayBord({super.key, required String title});
@@ -14,57 +14,55 @@ class pinwayBord extends StatefulWidget {
 class pinwayBordState extends State<pinwayBord> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
-  final TextEditingController _searchController = TextEditingController();
+  final TextEditingController _originController = TextEditingController();
+  final TextEditingController _destinationController = TextEditingController();
+
+  final Set<Marker> _markers = <Marker>{};
+  final Set<Polygon> _polygons = <Polygon>{};
+  final List<LatLng> _polygonLatLongs = <LatLng>[];
+
+  int _polygonIdCounter = 1;
 
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
   );
-  static const Marker _kGooglePlexMarker = Marker(
-    markerId: MarkerId('_kGooglePlex'),
-    position: LatLng(37.42796133580664, -122.085749655962),
-    icon: BitmapDescriptor.defaultMarker,
-    infoWindow: InfoWindow(title: 'Google plex'),
-  );
 
-  static const CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+  @override
+  void initState() {
+    super.initState();
 
-  static final Marker _kLakeMarker = Marker(
-    markerId: const MarkerId('_kLakeMarket'),
-    position: const LatLng(37.43296265331129, -122.08832357078792),
-    infoWindow: const InfoWindow(title: 'Lake'),
-    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  );
-  static const Polyline _kPolyline = Polyline(
-    polylineId: PolylineId('_kPolyline'),
-    visible: true,
-    points: [
-      LatLng(37.42796133580664, -122.085749655962),
-      LatLng(37.43296265331129, -122.08832357078792),
-    ],
-    color: Color.fromARGB(255, 23, 29, 34),
-    width: 5,
-  );
-  static const Polygon _kPolygon = Polygon(
-    polygonId: PolygonId('_kPolygon'),
-    points: [
-      LatLng(37.43296265331129, -122.08832357078792),
-      LatLng(37.42796133580664, -122.085749655962),
-      LatLng(37.418, -122.092),
-      LatLng(37.435, -122.092),
-    ],
-    strokeWidth: 5,
-    strokeColor: Color.fromARGB(255, 5, 5, 5),
-    fillColor: Colors.blue,
-  );
+    _setMarker(const LatLng(37.42796133580664, -122.085749655962));
+  }
+
+  void _setMarker(LatLng latLng) {
+    setState(() {
+      _markers.add(
+        Marker(
+          markerId: const MarkerId('id-1'),
+          position: latLng,
+        ),
+      );
+    });
+  }
+
+  void _setPolygon() {
+    final String polygonIdVal = 'polygon_id_$_polygonIdCounter';
+    _polygonIdCounter++;
+
+    _polygons.add(
+      Polygon(
+          polygonId: PolygonId(polygonIdVal),
+          points: _polygonLatLongs,
+          strokeWidth: 2,
+          fillColor: Colors.transparent),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text('Pinway Location'),
@@ -74,54 +72,72 @@ class pinwayBordState extends State<pinwayBord> {
           Row(
             children: [
               Expanded(
-                child: TextField(
-                  controller: _searchController,
-                  textCapitalization: TextCapitalization.words,
-                  decoration: const InputDecoration(
-                    hintText: 'Search',
-                  ),
-                  onChanged: (value) {
-                    print(value);
-                  },
+                child: Column(
+                  children: [
+                    TextField(
+                      controller: _originController,
+                      decoration: const InputDecoration(
+                        hintText: 'origin',
+                      ),
+                      onChanged: (value) {
+                        print(value);
+                      },
+                    ),
+                    TextField(
+                      controller: _destinationController,
+                      decoration: const InputDecoration(
+                        hintText: 'Destination',
+                      ),
+                      onChanged: (value) {
+                        print(value);
+                      },
+                    ),
+                  ],
                 ),
               ),
               IconButton(
-                onPressed: () {
-                  LocationService().getPlaceId(_searchController.text);
-                },
                 icon: const Icon(Icons.search),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SheduleBord(
+                              title: '',
+                            )),
+                  );
+                },
               ),
             ],
           ),
           Expanded(
             child: GoogleMap(
-              mapType: MapType.normal,
-              markers: {
-                _kGooglePlexMarker,
-                //_kLakeMarker,
-              },
-              // polylines: {_kPolyline},
-              // polygons: {
-              // _kPolygon,
-              // },
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
-            ),
+                mapType: MapType.hybrid,
+                markers: _markers,
+                polylines: Set<Polyline>.from(_polygons),
+                initialCameraPosition: _kGooglePlex,
+                onMapCreated: (GoogleMapController controller) {
+                  _controller.complete(controller);
+                },
+                onTap: (point) {
+                  _polygonLatLongs.add(point);
+                  _setPolygon();
+                }),
           ),
         ],
       ),
-      // floatingActionButton: FloatingActionButton.extended(
-      // onPressed: _goToTheLake,
-      // label: const Text('To the lake!'),
-      // icon: const Icon(Icons.directions_boat),
-      // ),
     );
   }
 
-  Future<void> _goToTheLake() async {
+  Future<void> _goToPlace(Map<String, dynamic> place) async {
+    final double lat = place['geometry']['location']['lat'];
+    final double lng = place['geometry']['location']['lng'];
     final GoogleMapController controller = await _controller.future;
-    await controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    await controller.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(
+        target: LatLng(lat, lng),
+        zoom: 12,
+      ),
+    ));
+    _setMarker(LatLng(lat, lng));
   }
 }
