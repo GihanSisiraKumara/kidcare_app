@@ -7,10 +7,10 @@ class profileBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Emergency!"),
+        title: const Text("Profile!"),
       ),
       body: const Center(
-        child: Text('emergaemcy servicess Parents!'),
+        child: Text('your profile'),
       ),
     );
   }

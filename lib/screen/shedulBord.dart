@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:kidcare/screen/pinwayBord.dart';
 
 class SheduleBord extends StatefulWidget {
   const SheduleBord({Key? key, required String title}) : super(key: key);
@@ -364,14 +365,14 @@ class _SheduleState extends State<SheduleBord> {
                       const SizedBox(height: 40),
                       ElevatedButton(
                         onPressed: () {
-                          // shedulrecord();
-                          // Navigator.push(
-                          // context,
-                          // MaterialPageRoute(
-                          // builder: (context) => const eBord(
-                          // title: '',
-                          // )),
-                          // );
+                          shedulrecord();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const pinwayBord(
+                                      title: '',
+                                    )),
+                          );
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(

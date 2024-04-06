@@ -209,7 +209,7 @@ class RegScreenState extends State<ConnectScreen> {
                         height: 10,
                       ),
                       const SizedBox(
-                        height: 70,
+                        height: 50,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -237,7 +237,7 @@ class RegScreenState extends State<ConnectScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 80,
+                        height: 50,
                       ),
                     ],
                   ),

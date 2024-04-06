@@ -6,8 +6,8 @@ import 'package:kidcare/screen/connectBord.dart';
 import 'package:kidcare/screen/eBord.dart';
 import 'package:kidcare/screen/locationBord.dart';
 import 'package:kidcare/screen/notificationBord.dart';
+import 'package:kidcare/screen/profileBord.dart';
 import 'package:kidcare/screen/shedulBord.dart';
-import 'package:kidcare/screen/useraccountBord.dart';
 import 'package:kidcare/screen/viewBord.dart';
 
 class DashBord extends StatelessWidget {
@@ -105,7 +105,7 @@ class DashBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const UseraccountBord(
+                      builder: (context) => const profileBord(
                         title: '',
                       ),
                     ),
