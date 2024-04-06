@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:kidcare/screen/location_service.dart';
 
 class pinwayBord extends StatefulWidget {
   const pinwayBord({super.key, required String title});
@@ -85,7 +86,9 @@ class pinwayBordState extends State<pinwayBord> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  LocationService().getPlaceId(_searchController.text);
+                },
                 icon: const Icon(Icons.search),
               ),
             ],
