@@ -65,7 +65,7 @@ class _LocationBoardState extends State<LocationBoard> {
         children: [
           Expanded(
             child: GoogleMap(
-                mapType: MapType.satellite,
+                mapType: MapType.hybrid,
                 markers: _markers,
                 polylines: Set<Polyline>.from(_polygons),
                 initialCameraPosition: _kGooglePlex,
