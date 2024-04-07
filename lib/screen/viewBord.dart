@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/shedulBord.dart';
 
 class viewBord extends StatelessWidget {
   const viewBord({super.key, required String title});
@@ -53,12 +52,12 @@ class viewBord extends StatelessWidget {
               const SizedBox(height: 10),
               itemProfile('Arival at Scool', '07.30 A.M', CupertinoIcons.time),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               itemProfile(
                   'Dispatcher at School', '13.30 P.M', CupertinoIcons.time),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               itemProfile('In Home', '14.30 P.M', CupertinoIcons.time),
               const SizedBox(
@@ -66,7 +65,11 @@ class viewBord extends StatelessWidget {
               ),
               const Text(
                 "Attendance",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color.fromARGB(255, 190, 88, 88),
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -79,24 +82,37 @@ class viewBord extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
+              Container(
                 width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xffB81736),
+                      Color(0xff281537),
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SheduleBord(
-                            title: '',
-                          ),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(15),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(15),
+                    backgroundColor:
+                        Colors.transparent, // Set primary color to transparent
+                    shadowColor: Colors.transparent, // Hide shadow
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Text('Edit Sheduling')),
-              )
+                  ),
+                  child: const Text(
+                    'Edit Profile',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -107,12 +123,12 @@ class viewBord extends StatelessWidget {
   itemProfile(String title, String subtitle, IconData iconData) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color.fromARGB(255, 240, 192, 192),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
                 offset: const Offset(0, 5),
-                color: Colors.deepOrange.withOpacity(.2),
+                color: const Color.fromARGB(255, 250, 248, 248).withOpacity(.2),
                 spreadRadius: 2,
                 blurRadius: 10)
           ]),
@@ -120,7 +136,8 @@ class viewBord extends StatelessWidget {
         title: Text(title),
         subtitle: Text(subtitle),
         leading: Icon(iconData),
-        trailing: Icon(Icons.arrow_forward, color: Colors.grey.shade400),
+        trailing: const Icon(Icons.arrow_forward,
+            color: Color.fromARGB(255, 6, 6, 6)),
         tileColor: Colors.white,
       ),
     );

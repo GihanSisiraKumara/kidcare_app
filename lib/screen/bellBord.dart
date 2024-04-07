@@ -61,32 +61,33 @@ class bellBord extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               itemProfile(
-                'Name                          2h',
+                'Name                             1m',
                 'Ahad Hashmi',
                 CupertinoIcons.person,
               ),
               const SizedBox(height: 10),
-              itemProfile('Date', '2024/03/23'),
+              itemProfile(
+                  'Date                               2m', '2024/03/23'),
               const SizedBox(height: 10),
-              itemProfile('Leave at Home', '07. 10 A.M.'),
+              itemProfile('Leave at Home              5h', '07. 10 A.M.'),
               const SizedBox(height: 10),
-              itemProfile('Arival at Scool', '07.30 A.M'),
+              itemProfile('Arival at Scool                8h ', '07.30 A.M'),
               const SizedBox(
                 height: 10,
               ),
-              itemProfile('Dispatcher at School', '13.30 P.M'),
+              itemProfile('Dispatcher at School      1d', '13.30 P.M'),
               const SizedBox(
                 height: 10,
               ),
-              itemProfile('In Home', '14.30 P.M'),
+              itemProfile('In Home                           1d', '14.30 P.M'),
               const SizedBox(
                 height: 10,
               ),
-              itemProfile('In School', '07.30 A.M'),
+              itemProfile('In School                         2d', '07.30 A.M'),
               const SizedBox(
                 height: 10,
               ),
-              itemProfile('Out School', '13.35 P.M'),
+              itemProfile('Out School                       7d', '13.35 P.M'),
               const SizedBox(
                 height: 10,
               ),
