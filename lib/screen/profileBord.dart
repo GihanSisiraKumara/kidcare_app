@@ -7,34 +7,53 @@ class profileBord extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 216, 194, 193),
       appBar: AppBar(
         title: const Text('Profile'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 236, 115, 107),
+              ),
+              child: const Text(
+                "Logout",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const SizedBox(height: 40),
+              // const SizedBox(height: 0),
               const CircleAvatar(
                 radius: 70,
                 backgroundImage: AssetImage('assets/images/user.webp'),
               ),
               const SizedBox(height: 20),
               itemProfile('Name', 'Ahad Hashmi', CupertinoIcons.person),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               itemProfile('Phone', '03107085816', CupertinoIcons.phone),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               itemProfile(
                   'Address', 'abc address, xyz city', CupertinoIcons.location),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               itemProfile('Email', 'ahadhashmideveloper@gmail.com',
                   CupertinoIcons.mail),
               const SizedBox(
                 height: 20,
               ),
-              itemProfile('Email', 'ahadhashmideveloper@gmail.com',
-                  CupertinoIcons.mail),
+              itemProfile('Paasord', '**************', CupertinoIcons.lock),
               const SizedBox(
                 height: 20,
               ),
@@ -80,13 +99,13 @@ class profileBord extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
+          borderRadius: BorderRadius.circular(50),
+          boxShadow: const [
             BoxShadow(
-                offset: const Offset(0, 5),
-                color: Colors.deepOrange.withOpacity(.2),
-                spreadRadius: 2,
-                blurRadius: 10)
+                offset: Offset(0, 5),
+                color: Color.fromARGB(255, 216, 194, 193),
+                spreadRadius: 20,
+                blurRadius: 0)
           ]),
       child: ListTile(
         title: Text(title),
