@@ -37,6 +37,7 @@ class _LocationBoardState extends State<LocationBoard> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.blue,
         onPressed: _currentLocation,
         label: const Text('Share your location!'),
         icon: const Icon(Icons.person),

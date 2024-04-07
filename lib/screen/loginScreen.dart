@@ -44,12 +44,35 @@ class LoginScreenState extends State<LoginScreen> {
         );
       } else {
         // Handle incorrect login credentials
-        print("Invalid login credentials");
+        //print("Invalid login credentials");
+        _showErrorDialog(
+          'Invalid username or password. Please try again.',
+        );
       }
     } else {
       // Handle error
       print("Error: ${response.statusCode}");
     }
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Login Error'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override

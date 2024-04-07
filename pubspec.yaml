@@ -89,6 +89,7 @@ flutter:
     - assets/images/call1.jpg
     - assets/images/google.webp
     - assets/images/user.webp
+    - assets/animations/error.json
 
     
     
