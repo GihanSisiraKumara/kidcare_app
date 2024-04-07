@@ -211,7 +211,7 @@ class LoginScreenState extends State<LoginScreen> {
                       children: [
                         Tab(icon: Image.asset("assets/images/facebook1.png")),
                         Tab(icon: Image.asset("assets/images/instergram.png")),
-                        Tab(icon: Image.asset("assets/images/linked.png")),
+                        Tab(icon: Image.asset("assets/images/google.webp")),
                       ],
                     ),
                     const SizedBox(

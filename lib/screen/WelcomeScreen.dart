@@ -25,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
             height: 100,
           ),
           const Text(
-            'Welcome Kidcare',
+            'Welcome To Kidcare',
             style: TextStyle(fontSize: 30, color: Colors.white),
           ),
           const SizedBox(
@@ -85,15 +85,26 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(),
-          // const Text(
-          // 'Login with Social Media',
-          // style: TextStyle(fontSize: 17, color: Colors.white),
-          // ), //
+          //const Spacer(),
           const SizedBox(
-            height: 12,
+            height: 80,
           ),
-          //const Image(image: AssetImage('assets/social.png'))
+          const Text(
+            'Login with Social Media',
+            style: TextStyle(
+                fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
+          ), //
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Tab(icon: Image.asset("assets/images/facebook1.png")),
+              Tab(icon: Image.asset("assets/images/instergram.png")),
+              Tab(icon: Image.asset("assets/images/google.webp")),
+            ],
+          ),
         ]),
       ),
     );
