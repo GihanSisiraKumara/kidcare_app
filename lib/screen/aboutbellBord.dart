@@ -30,7 +30,7 @@ class aboutbellBord extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              "Your child's safety, our priority\n A secure mobile app designed to protect and care for children, ensuring peace of mind for parents everywhere.",
+              "Unlock a world of timely updates and gentle reminders! Stay tuned to all the little moments that matter with our KidCare app's delightful notification hub.",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromARGB(255, 230, 36, 36),

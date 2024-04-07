@@ -31,7 +31,7 @@ class aboutlocationBord extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             const Text(
-              "Your child's safety, our priority\n A secure mobile app designed to protect and care for children, ensuring peace of mind for parents everywhere.",
+              "Stay in the loop and ensure your child's safety with our KidCare app's location-sharing feature. Share their whereabouts effortlessly for ultimate peace of mind !",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromARGB(255, 230, 36, 36),
