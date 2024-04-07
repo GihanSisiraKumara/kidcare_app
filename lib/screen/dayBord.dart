@@ -30,7 +30,7 @@ class dayBord extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              "Your child's safety, our priority\n A secure mobile app designed to protect and care for children, ensuring peace of mind for parents everywhere.",
+              "Craft the perfect day for your little one effortlessly! Dive into our KidCare app and schedule a world of fun, learning, and love with just a few taps",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromARGB(255, 230, 36, 36),
