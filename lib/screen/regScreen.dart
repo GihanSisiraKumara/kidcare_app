@@ -50,8 +50,31 @@ class RegScreenState extends State<RegScreen> {
         print(e);
       }
     } else {
-      print("please fill all the fileds");
+      //print("please fill all the fileds");
+      _showErrorDialog(
+        'Please fill all the fileds and try again.',
+      );
     }
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Register Error'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
