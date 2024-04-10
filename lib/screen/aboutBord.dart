@@ -21,7 +21,7 @@ class aboutBord extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              "Welcome to kidcare",
+              "About kidcare",
               style: TextStyle(
                 color: Color.fromARGB(255, 185, 4, 4),
                 fontWeight: FontWeight.bold,

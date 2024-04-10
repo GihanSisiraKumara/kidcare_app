@@ -9,26 +9,13 @@ class bellBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/login');
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 236, 115, 107),
-              ),
-              child: const Text(
-                "Logout",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ],
-        title: const Text("Emergency Bell!"),
+        title: const Text(
+          "Emergency Bell!",
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 247, 84, 84),
+              fontWeight: FontWeight.bold),
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -68,41 +55,34 @@ class bellBord extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 itemProfile(
-                  'Name                                       1m',
+                  'Name',
                   'Ahad Hashmi',
                   CupertinoIcons.person,
                 ),
-                const SizedBox(height: 10),
-                itemProfile('Date                                          2m',
-                    '2024/03/23'),
-                const SizedBox(height: 10),
-                itemProfile(
-                    'Leave at Home                         5h', '07. 10 A.M.'),
-                const SizedBox(height: 10),
-                itemProfile('Arival at Scool                          8h ',
-                    '07.30 A.M'),
+                const SizedBox(height: 20),
+                itemProfile('Date', '2024/03/23'),
+                const SizedBox(height: 20),
+                itemProfile('Leave at Home5h', '07. 10 A.M.'),
+                const SizedBox(height: 20),
+                itemProfile('Arival at Scool', '07.30 A.M'),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
-                itemProfile(
-                    'Dispatcher at School               1d', '13.30 P.M'),
+                itemProfile('Dispatcher at School', '13.30 P.M'),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
-                itemProfile('In Home                                    1d',
-                    '14.30 P.M'),
+                itemProfile('In Home', '14.30 P.M'),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
-                itemProfile('In School                                   2d',
-                    '07.30 A.M'),
+                itemProfile('In School', '07.30 A.M'),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
-                itemProfile('Out School                                7d',
-                    '13.35 P.M'),
+                itemProfile('Out School', '13.35 P.M'),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
               ],
             ),
@@ -120,7 +100,7 @@ class bellBord extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 offset: const Offset(0, 5),
-                color: const Color.fromARGB(255, 246, 244, 244).withOpacity(.2),
+                color: const Color.fromARGB(255, 33, 30, 30).withOpacity(.2),
                 spreadRadius: 2,
                 blurRadius: 10)
           ]),

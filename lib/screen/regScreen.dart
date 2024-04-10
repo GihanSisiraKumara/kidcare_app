@@ -80,6 +80,16 @@ class RegScreenState extends State<RegScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      // backgroundColor: Colors.transparent,
+      // flexibleSpace: Container(
+      // decoration: const BoxDecoration(
+      // gradient: LinearGradient(
+      // colors: [Color(0xffB81736), Color(0xff281537)],
+      // ),
+      // ),
+      // ),
+      // ),
       body: Stack(
         children: [
           Container(
@@ -95,15 +105,21 @@ class RegScreenState extends State<RegScreen> {
               children: [
                 const SizedBox(height: 70),
                 ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 25),
-                  title: Text('Wellcome  To Kidcare!',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
-                          ?.copyWith(color: Colors.white)),
-                  subtitle: Text('Register with Truth Details',
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: const Color.fromARGB(251, 255, 254, 254))),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+                  title: const Text(
+                    'Hello!',
+                    style: TextStyle(
+                        fontSize: 40,
+                        color: Color.fromARGB(255, 235, 185, 185),
+                        fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: const Text(
+                    'SignUp with Truth Details.',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Color.fromARGB(255, 239, 195, 195),
+                        fontWeight: FontWeight.bold),
+                  ),
                   trailing: CircleAvatar(
                     radius: 30,
                     backgroundColor: Colors.transparent,
@@ -127,7 +143,7 @@ class RegScreenState extends State<RegScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 200.0,
+              top: 220.0,
             ),
             child: Container(
               decoration: const BoxDecoration(
@@ -291,7 +307,7 @@ class RegScreenState extends State<RegScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 80,
+                        height: 50,
                       ),
                       Align(
                         alignment: Alignment.bottomRight,

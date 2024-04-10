@@ -58,25 +58,6 @@ class RegScreenState extends State<ConnectScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/login');
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 236, 115, 107),
-              ),
-              child: const Text(
-                "Logout",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ],
         title: const Text(""),
         backgroundColor: Colors.transparent,
         flexibleSpace: Container(
@@ -101,10 +82,10 @@ class RegScreenState extends State<ConnectScreen> {
             child: const Padding(
               padding: EdgeInsets.only(top: 10.0, left: 80),
               child: Text(
-                'Connect Your\n     Parent',
+                'Connect Your\n     Owner',
                 style: TextStyle(
                     fontSize: 30,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 240, 169, 169),
                     fontWeight: FontWeight.bold),
               ),
             ),

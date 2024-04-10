@@ -131,7 +131,7 @@ class LoginScreenState extends State<LoginScreen> {
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40)),
                 image: DecorationImage(
-                  image: AssetImage("assets/images/red.jpg"), // R
+                  image: AssetImage("assets/images/red.jpg"), //
                   fit: BoxFit.cover,
                 ),
                 color: Colors.white,
@@ -176,14 +176,27 @@ class LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Align(
+                    Align(
                       alignment: Alignment.centerRight,
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                          color: Color.fromARGB(255, 94, 118, 198),
+                      child: TextButton(
+                        onPressed: () {
+                          // Add your logic for handling forgot password here
+                          // For example, you can show a dialog or navigate to a forgot password screen.
+                          // Navigator.push(
+                          // context,
+                          // MaterialPageRoute(
+                          // builder: (context) => const RegScreen(
+                          // title: '',
+                          // )),
+                          // );
+                        },
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                            color: Color.fromARGB(255, 94, 118, 198),
+                          ),
                         ),
                       ),
                     ),

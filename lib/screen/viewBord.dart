@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kidcare/screen/shedulBord.dart';
 
 class viewBord extends StatelessWidget {
   const viewBord({super.key, required String title});
@@ -8,26 +9,13 @@ class viewBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/login');
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 236, 115, 107),
-              ),
-              child: const Text(
-                "Logout",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ],
-        title: const Text('Sheduling View'),
+        title: const Text(
+          'Sheduling View',
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 247, 84, 84),
+              fontWeight: FontWeight.bold),
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -52,21 +40,21 @@ class viewBord extends StatelessWidget {
                   'Ahad Hashmi',
                   CupertinoIcons.person,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 itemProfile('Date', '2024/03/23', CupertinoIcons.calendar),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 itemProfile(
                     'Leave at Home', '07. 10 A.M.', CupertinoIcons.time),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 itemProfile(
                     'Arival at Scool', '07.30 A.M', CupertinoIcons.time),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 itemProfile(
                     'Dispatcher at School', '13.30 P.M', CupertinoIcons.time),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 itemProfile('In Home', '14.30 P.M', CupertinoIcons.time),
                 const SizedBox(
@@ -103,7 +91,15 @@ class viewBord extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SheduleBord(
+                                  title: '',
+                                )),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(15),
                       backgroundColor: Colors
@@ -138,7 +134,7 @@ class viewBord extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 offset: const Offset(0, 5),
-                color: const Color.fromARGB(255, 250, 248, 248).withOpacity(.2),
+                color: const Color.fromARGB(255, 56, 52, 52).withOpacity(.2),
                 spreadRadius: 2,
                 blurRadius: 10)
           ]),

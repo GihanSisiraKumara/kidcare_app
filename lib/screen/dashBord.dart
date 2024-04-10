@@ -300,19 +300,21 @@ class DashBord extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: Text('Hello Children!',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
-                          ?.copyWith(color: Colors.white)),
+                  title: const Text(
+                    'Hello Children!',
+                    style: TextStyle(
+                        fontSize: 28,
+                        color: Color.fromARGB(255, 247, 220, 220),
+                        fontWeight: FontWeight.bold),
+                  ),
                   subtitle: Text('KIDCARE',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: const Color.fromARGB(251, 255, 254, 254))),
                   trailing: CircleAvatar(
-                    radius: 30,
+                    radius: 50,
                     backgroundColor: Colors.transparent,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
@@ -344,153 +346,157 @@ class DashBord extends StatelessWidget {
               ),
             ),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 27),
               decoration: const BoxDecoration(
                 // image: DecorationImage(
                 // image: AssetImage("assets/images/red.jpg"), // R
                 // fit: BoxFit.cover,
                 // ),
-                color: Colors.white,
+                color: Color.fromARGB(255, 251, 249, 249),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(160),
                 ),
               ),
-              child: GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                crossAxisSpacing: 40,
-                mainAxisSpacing: 35,
-                children: [
-                  itemDashboard(
-                    'Connect \n& Parent',
-                    CupertinoIcons.person_2,
-                    const Color.fromARGB(255, 212, 138, 88),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const ConnectScreen(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'View Shedule',
-                    CupertinoIcons.graph_circle,
-                    const Color.fromARGB(255, 217, 70, 82),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const viewBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Emergency \n Bell',
-                    CupertinoIcons.chat_bubble_2,
-                    const Color.fromARGB(255, 219, 31, 28),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const bellBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Notification',
-                    CupertinoIcons.add_circled,
-                    const Color.fromARGB(255, 244, 7, 70),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const notificationBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Emergency \n Service',
-                    CupertinoIcons.question_circle,
-                    const Color.fromARGB(255, 241, 94, 126),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const eBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Voice & Call',
-                    CupertinoIcons.phone,
-                    const Color.fromARGB(255, 218, 25, 57),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const CallBoard(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Shere Location',
-                    CupertinoIcons.location,
-                    const Color.fromARGB(255, 88, 241, 170),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const LocationBoard(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Day\n Sheduling',
-                    CupertinoIcons.add_circled,
-                    const Color.fromARGB(255, 244, 7, 70),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const SheduleBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25.0),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 40,
+                  mainAxisSpacing: 35,
+                  children: [
+                    // const SizedBox(height: 5),
+                    itemDashboard(
+                      'Connect \n& Parent',
+                      CupertinoIcons.person_2,
+                      const Color.fromARGB(255, 212, 138, 88),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const ConnectScreen(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'View Shedule',
+                      CupertinoIcons.graph_circle,
+                      const Color.fromARGB(255, 217, 70, 82),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const viewBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Emergency \n Bell',
+                      CupertinoIcons.chat_bubble_2,
+                      const Color.fromARGB(255, 219, 31, 28),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const bellBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Notification',
+                      CupertinoIcons.add_circled,
+                      const Color.fromARGB(255, 244, 7, 70),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const notificationBord(
+                                title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Emergency \n Service',
+                      CupertinoIcons.question_circle,
+                      const Color.fromARGB(255, 241, 94, 126),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const eBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Voice & Call',
+                      CupertinoIcons.phone,
+                      const Color.fromARGB(255, 218, 25, 57),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const CallBoard(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Shere Location',
+                      CupertinoIcons.location,
+                      const Color.fromARGB(255, 88, 241, 170),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const LocationBoard(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Day\n Sheduling',
+                      CupertinoIcons.add_circled,
+                      const Color.fromARGB(255, 244, 7, 70),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const SheduleBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -516,9 +522,9 @@ class DashBord extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 5),
-                color: Theme.of(context).primaryColor.withOpacity(.2),
+                color: Theme.of(context).primaryColor.withOpacity(.3),
                 spreadRadius: 2,
-                blurRadius: 5,
+                blurRadius: 7,
               )
             ],
           ),

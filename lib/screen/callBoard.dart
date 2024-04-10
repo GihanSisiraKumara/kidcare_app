@@ -29,26 +29,13 @@ class _CallBoardState extends State<CallBoard> {
 
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/login');
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 236, 115, 107),
-              ),
-              child: const Text(
-                "Logout",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ],
-        title: const Text('Call'),
+        title: const Text(
+          'Call',
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 247, 84, 84),
+              fontWeight: FontWeight.bold),
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(

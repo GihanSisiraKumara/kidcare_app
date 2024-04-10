@@ -30,7 +30,7 @@ class doneBord extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              "Every think is ready\n For you to start using the app. Enjoy the app and keep your child safe!",
+              "Every think is ready For you\n to start using the app. Enjoy the app and keep your child safe!",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromARGB(255, 230, 36, 36),
