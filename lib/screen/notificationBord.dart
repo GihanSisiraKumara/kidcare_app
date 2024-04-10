@@ -10,6 +10,20 @@ class notificationBord extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 211, 149, 143),
       appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          style: ButtonStyle(
+            iconSize: MaterialStateProperty.all<double>(30),
+            iconColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 252, 251, 251)),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 234, 117, 117)),
+          ),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: const Text(
           "Notification",
           style: TextStyle(

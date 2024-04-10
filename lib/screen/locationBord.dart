@@ -58,8 +58,22 @@ class _LocationBoardState extends State<LocationBoard> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 193, 211, 226),
         title: const Text('Share Your Location'),
+        leading: IconButton(
+          style: ButtonStyle(
+            iconSize: MaterialStateProperty.all<double>(30),
+            iconColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 252, 251, 251)),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 234, 117, 117)),
+          ),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Column(
         children: [

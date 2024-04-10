@@ -5,6 +5,7 @@ import 'package:kidcare/screen/callBoard.dart';
 import 'package:kidcare/screen/connectBord.dart';
 import 'package:kidcare/screen/eBord.dart';
 import 'package:kidcare/screen/locationBord.dart';
+import 'package:kidcare/screen/notificationBord.dart';
 import 'package:kidcare/screen/profileBord.dart';
 import 'package:kidcare/screen/qrscannerBord.dart';
 import 'package:kidcare/screen/shedulBord.dart';
@@ -178,6 +179,30 @@ class DashBord extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const eBord(
+                        title: '',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.notification_add,
+                  color: Color(0xffB81736),
+                ),
+                title: const Text(
+                  'Notification ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffB81736),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const notificationBord(
                         title: '',
                       ),
                     ),
