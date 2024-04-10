@@ -29,6 +29,22 @@ class DashBord extends StatelessWidget {
           ),
         ),
         actions: [
+          IconButton(
+            onPressed: () {
+              // Handle notification icon pressed
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const notificationBord(
+                          title: '',
+                        )),
+              );
+            },
+            icon: const Icon(
+              Icons.notifications,
+              color: Color.fromARGB(255, 244, 167, 167),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: ElevatedButton(
@@ -505,7 +521,7 @@ class DashBord extends StatelessWidget {
                       },
                     ),
                     itemDashboard(
-                      'Day\n Sheduling',
+                      '       Day\n Sheduling',
                       CupertinoIcons.add_circled,
                       const Color.fromARGB(255, 244, 7, 70),
                       context,

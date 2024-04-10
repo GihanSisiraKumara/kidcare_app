@@ -9,7 +9,27 @@ class profileBord extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 216, 194, 193),
       appBar: AppBar(
-        title: const Text('Profile'),
+        centerTitle: true,
+        title: const Text(
+          'Profile',
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 247, 84, 84),
+              fontWeight: FontWeight.bold),
+        ),
+        leading: IconButton(
+          style: ButtonStyle(
+            iconSize: MaterialStateProperty.all<double>(30),
+            iconColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 252, 251, 251)),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 240, 113, 113)),
+          ),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -30,9 +50,15 @@ class profileBord extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/red2.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               // const SizedBox(height: 0),
@@ -103,9 +129,9 @@ class profileBord extends StatelessWidget {
           boxShadow: const [
             BoxShadow(
                 offset: Offset(0, 5),
-                color: Color.fromARGB(255, 216, 194, 193),
-                spreadRadius: 20,
-                blurRadius: 0)
+                color: Color.fromARGB(255, 241, 158, 144),
+                spreadRadius: 2,
+                blurRadius: 10)
           ]),
       child: ListTile(
         title: Text(title),

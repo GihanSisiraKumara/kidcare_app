@@ -9,6 +9,7 @@ class viewBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 252, 250, 251),
         centerTitle: true,
         title: const Text(
           'Sheduling View',
@@ -148,7 +149,7 @@ class viewBord extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 offset: const Offset(0, 5),
-                color: const Color.fromARGB(255, 56, 52, 52).withOpacity(.2),
+                color: const Color.fromARGB(255, 85, 69, 69).withOpacity(.2),
                 spreadRadius: 2,
                 blurRadius: 10)
           ]),

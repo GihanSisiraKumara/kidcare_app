@@ -25,13 +25,21 @@ class _qrscannerBordState extends State<qrscannerBord> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('QR Scanner'),
-          backgroundColor: Colors.redAccent,
+          title: const Text(
+            'QR Scanner',
+            style: TextStyle(
+                fontSize: 22,
+                color: Color.fromARGB(255, 247, 84, 84),
+                fontWeight: FontWeight.bold),
+          ),
+          backgroundColor: const Color.fromARGB(255, 249, 247, 247),
           leading: IconButton(
             style: ButtonStyle(
               iconSize: MaterialStateProperty.all<double>(30),
-              iconColor: MaterialStateProperty.all<Color>(Colors.redAccent),
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              iconColor: MaterialStateProperty.all<Color>(
+                  const Color.fromARGB(255, 252, 251, 251)),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color.fromARGB(255, 234, 117, 117)),
             ),
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
