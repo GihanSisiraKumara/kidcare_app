@@ -5,8 +5,8 @@ import 'package:kidcare/screen/callBoard.dart';
 import 'package:kidcare/screen/connectBord.dart';
 import 'package:kidcare/screen/eBord.dart';
 import 'package:kidcare/screen/locationBord.dart';
-import 'package:kidcare/screen/notificationBord.dart';
 import 'package:kidcare/screen/profileBord.dart';
+import 'package:kidcare/screen/qrscannerBord.dart';
 import 'package:kidcare/screen/shedulBord.dart';
 import 'package:kidcare/screen/viewBord.dart';
 
@@ -416,8 +416,8 @@ class DashBord extends StatelessWidget {
                       },
                     ),
                     itemDashboard(
-                      'Notification',
-                      CupertinoIcons.add_circled,
+                      'Attendance \n Scanner',
+                      CupertinoIcons.qrcode_viewfinder,
                       const Color.fromARGB(255, 244, 7, 70),
                       context,
                       () {
@@ -425,8 +425,8 @@ class DashBord extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const notificationBord(
-                                title: 'Analytics & Exam'),
+                            builder: (context) =>
+                                const qrscannerBord(title: 'Analytics & Exam'),
                           ),
                         );
                       },
