@@ -441,7 +441,7 @@ class DashBord extends StatelessWidget {
                       },
                     ),
                     itemDashboard(
-                      'Emergency \n Bell',
+                      'Emergency \n       Bell',
                       CupertinoIcons.chat_bubble_2,
                       const Color.fromARGB(255, 219, 31, 28),
                       context,
@@ -457,7 +457,7 @@ class DashBord extends StatelessWidget {
                       },
                     ),
                     itemDashboard(
-                      'Attendance \n Scanner',
+                      'Attendance \n    Scanner',
                       CupertinoIcons.qrcode_viewfinder,
                       const Color.fromARGB(255, 244, 7, 70),
                       context,

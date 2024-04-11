@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class LocationBoard extends StatefulWidget {
-  const LocationBoard({Key? key, required this.title}) : super(key: key);
+class parentlocationBord extends StatefulWidget {
+  const parentlocationBord({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -12,7 +12,7 @@ class LocationBoard extends StatefulWidget {
   _LocationBoardState createState() => _LocationBoardState();
 }
 
-class _LocationBoardState extends State<LocationBoard> {
+class _LocationBoardState extends State<parentlocationBord> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
   final Set<Marker> _markers = <Marker>{};
@@ -61,7 +61,7 @@ class _LocationBoardState extends State<LocationBoard> {
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 249, 250, 251),
         title: const Text(
-          'Share Your Location',
+          'Find Location',
           style: TextStyle(
               fontSize: 22,
               color: Color.fromARGB(255, 247, 84, 84),

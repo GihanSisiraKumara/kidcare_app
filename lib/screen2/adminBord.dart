@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kidcare/screen2/conchildBord.dart';
 import 'package:kidcare/screen2/eservicessBord.dart';
-import 'package:kidcare/screen2/parentaccountBord.dart';
 import 'package:kidcare/screen2/parentcallBord.dart';
+import 'package:kidcare/screen2/parentlocationBord.dart';
 import 'package:kidcare/screen2/parentnotifiBord.dart';
+import 'package:kidcare/screen2/parentprofile.dart';
 import 'package:kidcare/screen2/parentviewBord.dart';
 
 class adminBord extends StatelessWidget {
@@ -25,6 +26,22 @@ class adminBord extends StatelessWidget {
           ),
         ),
         actions: [
+          IconButton(
+            onPressed: () {
+              // Handle notification icon pressed
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const parentnotifiBord(
+                          title: '',
+                        )),
+              );
+            },
+            icon: const Icon(
+              Icons.notifications,
+              color: Color.fromARGB(255, 244, 167, 167),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: ElevatedButton(
@@ -102,7 +119,7 @@ class adminBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const parentaccountBord(
+                      builder: (context) => const parentprofile(
                         title: '',
                       ),
                     ),
@@ -295,103 +312,118 @@ class adminBord extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
-                // image: DecorationImage(
-                // image: AssetImage("assets/images/red.jpg"), // R
-                // fit: BoxFit.cover,
-                // ),
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(160),
                 ),
               ),
-              child: GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                crossAxisSpacing: 40,
-                mainAxisSpacing: 35,
-                children: [
-                  itemDashboard(
-                    'Connect \n& Children',
-                    CupertinoIcons.person_2,
-                    const Color.fromARGB(255, 212, 138, 88),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const conchildBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'View Shedule',
-                    CupertinoIcons.graph_circle,
-                    const Color.fromARGB(255, 217, 70, 82),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const parentviewBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Notification',
-                    CupertinoIcons.add_circled,
-                    const Color.fromARGB(255, 244, 7, 70),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const parentnotifiBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Emergency \n Service',
-                    CupertinoIcons.question_circle,
-                    const Color.fromARGB(255, 241, 94, 126),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const eservicessBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                  itemDashboard(
-                    'Voice & Call',
-                    CupertinoIcons.phone,
-                    const Color.fromARGB(255, 218, 25, 57),
-                    context,
-                    () {
-                      // Use the function to navigate to the desired page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const parentcallBord(title: 'Analytics & Exam'),
-                        ),
-                      );
-                    },
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 40,
+                  mainAxisSpacing: 35,
+                  children: [
+                    itemDashboard(
+                      'Connect \n& Children',
+                      CupertinoIcons.person_2,
+                      const Color.fromARGB(255, 212, 138, 88),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const conchildBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'View Shedule',
+                      CupertinoIcons.graph_circle,
+                      const Color.fromARGB(255, 217, 70, 82),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const parentviewBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Profile',
+                      CupertinoIcons.person,
+                      const Color.fromARGB(255, 244, 7, 70),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const parentprofile(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Emergency \n Service',
+                      CupertinoIcons.question_circle,
+                      const Color.fromARGB(255, 241, 94, 126),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const eservicessBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Voice & Call',
+                      CupertinoIcons.phone,
+                      const Color.fromARGB(255, 218, 25, 57),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const parentcallBord(title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                    itemDashboard(
+                      'Shere Location',
+                      CupertinoIcons.location,
+                      const Color.fromARGB(255, 88, 241, 170),
+                      context,
+                      () {
+                        // Use the function to navigate to the desired page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const parentlocationBord(
+                                title: 'Analytics & Exam'),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -417,9 +449,9 @@ class adminBord extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 5),
-                color: Theme.of(context).primaryColor.withOpacity(.2),
+                color: Theme.of(context).primaryColor.withOpacity(.3),
                 spreadRadius: 2,
-                blurRadius: 5,
+                blurRadius: 7,
               )
             ],
           ),

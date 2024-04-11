@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/shedulBord.dart';
 
-class parentviewBord extends StatelessWidget {
-  const parentviewBord({super.key, required String title});
+class parentprofile extends StatelessWidget {
+  const parentprofile({super.key, required String title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 216, 194, 193),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 252, 250, 251),
         centerTitle: true,
         title: const Text(
-          'Sheduling View',
+          'Profile',
           style: TextStyle(
               fontSize: 22,
               color: Color.fromARGB(255, 247, 84, 84),
@@ -24,73 +23,64 @@ class parentviewBord extends StatelessWidget {
             iconColor: MaterialStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
             backgroundColor: MaterialStateProperty.all<Color>(
-                const Color.fromARGB(255, 234, 117, 117)),
+                const Color.fromARGB(255, 240, 113, 113)),
           ),
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
+        // actions: [
+        // Padding(
+        // padding: const EdgeInsets.symmetric(horizontal: 10),
+        // child: ElevatedButton(
+        // onPressed: () {
+        // Navigator.pushReplacementNamed(context, '/login');
+        // },
+        // style: ElevatedButton.styleFrom(
+        // backgroundColor: const Color.fromARGB(255, 236, 115, 107),
+        // ),
+        // child: const Text(
+        // "Logout",
+        // style: TextStyle(
+        // color: Colors.white,
+        // ),
+        // ),
+        // ),
+        // ),
+        // ],
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/red2.jpg'),
-            fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/red2.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                // const SizedBox(height: 0),
                 const CircleAvatar(
                   radius: 70,
-                  backgroundImage: AssetImage('assets/images/kidcare.png'),
+                  backgroundImage: AssetImage('assets/images/pro.png'),
                 ),
                 const SizedBox(height: 20),
-                itemProfile(
-                  'Name',
-                  'Ahad Hashmi',
-                  CupertinoIcons.person,
-                ),
+                itemProfile('Name', 'Ahad Hashmi', CupertinoIcons.person),
                 const SizedBox(height: 20),
-                itemProfile('Date', '2024/03/23', CupertinoIcons.calendar),
+                itemProfile('Phone', '03107085816', CupertinoIcons.phone),
                 const SizedBox(height: 20),
-                itemProfile(
-                    'Leave at Home', '07. 10 A.M.', CupertinoIcons.time),
+                itemProfile('Address', 'abc address, xyz city',
+                    CupertinoIcons.location),
                 const SizedBox(height: 20),
-                itemProfile(
-                    'Arival at Scool', '07.30 A.M', CupertinoIcons.time),
+                itemProfile('Email', 'ahadhashmideveloper@gmail.com',
+                    CupertinoIcons.mail),
                 const SizedBox(
                   height: 20,
                 ),
-                itemProfile(
-                    'Dispatcher at School', '13.30 P.M', CupertinoIcons.time),
-                const SizedBox(
-                  height: 20,
-                ),
-                itemProfile('In Home', '14.30 P.M', CupertinoIcons.time),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  "Attendance",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Color.fromARGB(255, 190, 88, 88),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                itemProfile('In School', '07.30 A.M', CupertinoIcons.time),
-                const SizedBox(
-                  height: 20,
-                ),
-                itemProfile('Out School', '13.35 P.M', CupertinoIcons.time),
+                itemProfile('Paasord', '**************', CupertinoIcons.lock),
                 const SizedBox(
                   height: 20,
                 ),
@@ -106,15 +96,7 @@ class parentviewBord extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SheduleBord(
-                                  title: '',
-                                )),
-                      );
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(15),
                       backgroundColor: Colors
@@ -125,7 +107,7 @@ class parentviewBord extends StatelessWidget {
                       ),
                     ),
                     child: const Text(
-                      'Edit Shedule',
+                      'Edit Profile',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -144,21 +126,20 @@ class parentviewBord extends StatelessWidget {
   itemProfile(String title, String subtitle, IconData iconData) {
     return Container(
       decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 248, 238, 238),
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50),
+          boxShadow: const [
             BoxShadow(
-                offset: const Offset(0, 5),
-                color: const Color.fromARGB(255, 85, 69, 69).withOpacity(.2),
-                spreadRadius: 2,
-                blurRadius: 10)
+                offset: Offset(0, 5),
+                color: Color.fromARGB(255, 77, 66, 64),
+                spreadRadius: 1,
+                blurRadius: 2),
           ]),
       child: ListTile(
         title: Text(title),
         subtitle: Text(subtitle),
         leading: Icon(iconData),
-        trailing: const Icon(Icons.arrow_forward,
-            color: Color.fromARGB(255, 6, 6, 6)),
+        trailing: Icon(Icons.arrow_forward, color: Colors.grey.shade400),
         tileColor: Colors.white,
       ),
     );
