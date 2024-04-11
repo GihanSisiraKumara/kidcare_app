@@ -114,7 +114,7 @@ class RegScreenState extends State<RegScreen> {
                         fontWeight: FontWeight.bold),
                   ),
                   subtitle: const Text(
-                    'SignUp with Truth Details.',
+                    'Sign Up ',
                     style: TextStyle(
                         fontSize: 20,
                         color: Color.fromARGB(255, 246, 237, 237),

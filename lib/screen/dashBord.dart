@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kidcare/screen/bellBord.dart';
 import 'package:kidcare/screen/callBoard.dart';
 import 'package:kidcare/screen/connectBord.dart';
-import 'package:kidcare/screen/eBord.dart';
+import 'package:kidcare/screen/eservicessBord.dart.dart';
 import 'package:kidcare/screen/locationBord.dart';
 import 'package:kidcare/screen/notificationBord.dart';
 import 'package:kidcare/screen/profileBord.dart';
@@ -12,7 +12,7 @@ import 'package:kidcare/screen/shedulBord.dart';
 import 'package:kidcare/screen/viewBord.dart';
 
 class DashBord extends StatelessWidget {
-  const DashBord({Key? key}) : super(key: key);
+  const DashBord({Key? key, required String title}) : super(key: key);
 
   @override
   // Import Cupertino package
@@ -100,7 +100,9 @@ class DashBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DashBord(),
+                      builder: (context) => const DashBord(
+                        title: '',
+                      ),
                     ),
                   );
                 },
@@ -194,7 +196,7 @@ class DashBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const eBord(
+                      builder: (context) => const eservicessBord(
                         title: '',
                       ),
                     ),
@@ -314,8 +316,9 @@ class DashBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          const DashBord(), // create help dart page
+                      builder: (context) => const DashBord(
+                        title: '',
+                      ), // create help dart page
                     ),
                   );
                 },
@@ -473,7 +476,7 @@ class DashBord extends StatelessWidget {
                       },
                     ),
                     itemDashboard(
-                      'Emergency \n Service',
+                      'Emergency \n Services',
                       CupertinoIcons.question_circle,
                       const Color.fromARGB(255, 241, 94, 126),
                       context,
@@ -483,7 +486,7 @@ class DashBord extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                const eBord(title: 'Analytics & Exam'),
+                                const eservicessBord(title: 'Analytics & Exam'),
                           ),
                         );
                       },

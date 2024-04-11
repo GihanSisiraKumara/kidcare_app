@@ -66,7 +66,7 @@ class pinwayBordState extends State<pinwayBord> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Profile',
+          'Pin your way',
           style: TextStyle(
               fontSize: 22,
               color: Color.fromARGB(255, 247, 84, 84),
@@ -94,6 +94,7 @@ class pinwayBordState extends State<pinwayBord> {
                 child: Column(
                   children: [
                     TextField(
+                      textAlign: TextAlign.center,
                       controller: _originController,
                       decoration: const InputDecoration(
                         hintText: 'origin',
@@ -103,6 +104,7 @@ class pinwayBordState extends State<pinwayBord> {
                       },
                     ),
                     TextField(
+                      textAlign: TextAlign.center,
                       controller: _destinationController,
                       decoration: const InputDecoration(
                         hintText: 'Destination',

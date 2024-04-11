@@ -16,6 +16,7 @@ class aboutbellBord extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 50),
             Container(
               child: Lottie.asset('assets/animations/Animation - bell.json'),
             ),

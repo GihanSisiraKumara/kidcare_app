@@ -83,7 +83,7 @@ class _qrscannerBordState extends State<qrscannerBord> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Please the qr code scane here",
+                      "Please Scan the QR here",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),

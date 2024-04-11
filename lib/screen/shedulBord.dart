@@ -112,7 +112,7 @@ class _SheduleState extends State<SheduleBord> {
             child: const Padding(
               padding: EdgeInsets.only(top: 10.0, left: 70),
               child: Text(
-                'Sheduler Your\nDayly Task',
+                'Schedule Your\nDaily Task',
                 style: TextStyle(
                   fontSize: 30,
                   color: Color.fromARGB(255, 246, 242, 242),
@@ -158,7 +158,7 @@ class _SheduleState extends State<SheduleBord> {
                             color: Color.fromARGB(255, 13, 11, 11),
                           ),
                           label: Text(
-                            'Your user name',
+                            ' Name',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color(0xffB81736),
@@ -218,7 +218,7 @@ class _SheduleState extends State<SheduleBord> {
                             ),
                           ),
                           label: const Text(
-                            'Leave at Home',
+                            'Departure from Home',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Color(0xffB81736),
@@ -248,7 +248,7 @@ class _SheduleState extends State<SheduleBord> {
                               ),
                             ),
                             label: const Text(
-                              'Arrival at School',
+                              'Arriving from School',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xffB81736),
@@ -277,7 +277,7 @@ class _SheduleState extends State<SheduleBord> {
                               ),
                             ),
                             label: const Text(
-                              'Dispatcher at School',
+                              'Departure from School',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xffB81736),

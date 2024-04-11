@@ -48,7 +48,10 @@ class bellBord extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const DashBord()),
+                      MaterialPageRoute(
+                          builder: (context) => const DashBord(
+                                title: '',
+                              )),
                     );
                   },
                   child: const CircleAvatar(
@@ -65,7 +68,7 @@ class bellBord extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.all(15),
                       ),
-                      child: const Text('Deseble Bell')),
+                      child: const Text('Disable Bell')),
                 ),
                 const SizedBox(height: 20),
                 itemProfile(

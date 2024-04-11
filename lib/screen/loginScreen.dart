@@ -39,7 +39,9 @@ class LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const DashBord(),
+            builder: (context) => const DashBord(
+              title: '',
+            ),
           ),
         );
       } else {
@@ -185,7 +187,7 @@ class LoginScreenState extends State<LoginScreen> {
                           // Navigator.push(
                           // context,
                           // MaterialPageRoute(
-                          // builder: (context) => const RegScreen(
+                          // builder: (context) => const DashBord(
                           // title: '',
                           // )),
                           // );
