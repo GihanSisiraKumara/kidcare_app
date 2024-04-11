@@ -348,7 +348,7 @@ class DashBord extends StatelessWidget {
                     'Hello Children!',
                     style: TextStyle(
                         fontSize: 28,
-                        color: Color.fromARGB(255, 247, 220, 220),
+                        color: Color.fromARGB(255, 252, 249, 249),
                         fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text('KIDCARE',

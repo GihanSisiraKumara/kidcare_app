@@ -9,17 +9,18 @@ class aboutBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-        title: const Text(""),
-      ),
+      // appBar: AppBar(
+      // backgroundColor: const Color.fromARGB(255, 244, 215, 213),
+      // title: const Text(""),
+      // ),
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 50),
             Container(
               child: Lottie.asset('assets/animations/Animation - 0.json'),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 50),
             const Text(
               "About kidcare",
               style: TextStyle(

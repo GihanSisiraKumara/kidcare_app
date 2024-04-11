@@ -9,10 +9,10 @@ class aboutbellBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      appBar: AppBar(
-        //backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-        title: const Text(""),
-      ),
+      // appBar: AppBar(
+      // backgroundColor: const Color.fromARGB(255, 244, 215, 213),
+      // title: const Text(""),
+      // ),
       body: Center(
         child: Column(
           children: [

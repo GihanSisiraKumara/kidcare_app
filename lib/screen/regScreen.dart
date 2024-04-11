@@ -110,14 +110,14 @@ class RegScreenState extends State<RegScreen> {
                     'Hello!',
                     style: TextStyle(
                         fontSize: 40,
-                        color: Color.fromARGB(255, 235, 185, 185),
+                        color: Color.fromARGB(255, 247, 245, 245),
                         fontWeight: FontWeight.bold),
                   ),
                   subtitle: const Text(
                     'SignUp with Truth Details.',
                     style: TextStyle(
                         fontSize: 20,
-                        color: Color.fromARGB(255, 239, 195, 195),
+                        color: Color.fromARGB(255, 246, 237, 237),
                         fontWeight: FontWeight.bold),
                   ),
                   trailing: CircleAvatar(
