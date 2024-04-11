@@ -8,7 +8,7 @@ class notificationBord extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 211, 149, 143),
+      backgroundColor: const Color.fromARGB(255, 241, 178, 173),
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
@@ -82,7 +82,7 @@ class notificationBord extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Good afternoon",
+                          "Kidcare alert!",
                           style: TextStyle(fontWeight: FontWeight.w600),
                         ),
                         Text(
@@ -92,7 +92,7 @@ class notificationBord extends StatelessWidget {
                       ],
                     ),
                     subtitle: const Text(
-                      "plase fill all the text feild and conform that",
+                      "Your child is not feeling well, please check him/her. please check shedules for more details.",
                       style: TextStyle(color: Color.fromARGB(255, 11, 11, 11)),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,

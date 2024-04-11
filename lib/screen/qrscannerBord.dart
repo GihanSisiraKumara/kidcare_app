@@ -132,10 +132,10 @@ class _qrscannerBordState extends State<qrscannerBord> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Scan Properly to see results -",
+                      "Scan Properly to see results here",
                       style: TextStyle(
                         fontSize: 20,
-                        color: Color.fromARGB(255, 34, 32, 26),
+                        color: Color.fromARGB(255, 249, 78, 89),
                       ),
                     ),
                   ],

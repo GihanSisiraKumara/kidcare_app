@@ -96,7 +96,7 @@ class _CallBoardState extends State<CallBoard> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Good afternoon",
+                              "Missed Call",
                               style: TextStyle(fontWeight: FontWeight.w600),
                             ),
                             Text(
@@ -107,7 +107,7 @@ class _CallBoardState extends State<CallBoard> {
                           ],
                         ),
                         subtitle: const Text(
-                          "plase fill all the text feild and conform that",
+                          "You have 1 missed call from 0767301727. last call at 2:00pm",
                           style:
                               TextStyle(color: Color.fromARGB(255, 11, 11, 11)),
                           maxLines: 2,
