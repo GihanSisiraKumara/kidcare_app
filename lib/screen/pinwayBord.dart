@@ -64,8 +64,27 @@ class pinwayBordState extends State<pinwayBord> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Pinway Location'),
+        centerTitle: true,
+        title: const Text(
+          'Profile',
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 247, 84, 84),
+              fontWeight: FontWeight.bold),
+        ),
+        leading: IconButton(
+          style: ButtonStyle(
+            iconSize: MaterialStateProperty.all<double>(30),
+            iconColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 252, 251, 251)),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 240, 113, 113)),
+          ),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Column(
         children: [

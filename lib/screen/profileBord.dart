@@ -133,7 +133,7 @@ class profileBord extends StatelessWidget {
                 offset: Offset(0, 5),
                 color: Color.fromARGB(255, 77, 66, 64),
                 spreadRadius: 1,
-                blurRadius: 2)
+                blurRadius: 2),
           ]),
       child: ListTile(
         title: Text(title),

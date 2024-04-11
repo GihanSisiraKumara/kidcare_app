@@ -48,6 +48,9 @@ dependencies:
   mobile_scanner: ^2.1.0
   qr_scanner_overlay: ^0.0.2
   qr_flutter: ^4.1.0
+  
+
+  
  
  
 

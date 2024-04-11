@@ -123,7 +123,7 @@ class bellBord extends StatelessWidget {
                 offset: const Offset(0, 5),
                 color: const Color.fromARGB(255, 33, 30, 30).withOpacity(.2),
                 spreadRadius: 2,
-                blurRadius: 10)
+                blurRadius: 2)
           ]),
       child: ListTile(
         title: Text(title),
