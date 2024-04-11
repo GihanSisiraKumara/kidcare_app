@@ -99,7 +99,7 @@ class RegScreenState extends State<ConnectScreen> {
                 'Connect Your\n     Owner',
                 style: TextStyle(
                     fontSize: 30,
-                    color: Color.fromARGB(255, 240, 169, 169),
+                    color: Color.fromARGB(255, 250, 247, 247),
                     fontWeight: FontWeight.bold),
               ),
             ),
