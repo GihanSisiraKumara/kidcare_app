@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kidcare/screen2/conchildBord.dart';
-import 'package:kidcare/screen2/eservicessBord.dart';
+import 'package:kidcare/screen2/eservicesspaBord.dart';
 import 'package:kidcare/screen2/parentcallBord.dart';
 import 'package:kidcare/screen2/parentlocationBord.dart';
 import 'package:kidcare/screen2/parentnotifiBord.dart';
@@ -167,7 +167,7 @@ class adminBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const eservicessBord(
+                      builder: (context) => const eservicesspaBord(
                         title: '',
                       ),
                     ),
@@ -384,8 +384,8 @@ class adminBord extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                const eservicessBord(title: 'Analytics & Exam'),
+                            builder: (context) => const eservicesspaBord(
+                                title: 'Analytics & Exam'),
                           ),
                         );
                       },

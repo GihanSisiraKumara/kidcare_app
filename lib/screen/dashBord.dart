@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kidcare/screen/bellBord.dart';
 import 'package:kidcare/screen/callBoard.dart';
 import 'package:kidcare/screen/connectBord.dart';
-import 'package:kidcare/screen/eservicessBord.dart.dart';
+import 'package:kidcare/screen/eservicessBord.dart';
 import 'package:kidcare/screen/locationBord.dart';
 import 'package:kidcare/screen/notificationBord.dart';
 import 'package:kidcare/screen/profileBord.dart';
