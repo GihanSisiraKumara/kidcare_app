@@ -47,7 +47,8 @@ class viewBord extends StatelessWidget {
                 const SizedBox(height: 20),
                 const CircleAvatar(
                   radius: 70,
-                  backgroundImage: AssetImage('assets/images/kidcare.png'),
+                  backgroundImage: AssetImage('assets/images/logo.png'),
+                  backgroundColor: Colors.white,
                 ),
                 const SizedBox(height: 20),
                 itemProfile(

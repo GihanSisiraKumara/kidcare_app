@@ -97,6 +97,7 @@ flutter:
     - assets/images/user.webp
     - assets/animations/error.json
     - assets/images/pro.png
+    - assets/images/logo.png
 
     
     
