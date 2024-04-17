@@ -283,7 +283,7 @@ class adminBord extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: Image.asset(
-                        "assets/images/kidcare.png",
+                        "assets/images/logo.png",
                         width:
                             60, // Adjust width and height to fit the circular avatar
                         height: 60,
