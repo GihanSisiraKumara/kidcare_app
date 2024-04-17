@@ -7,6 +7,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -16,7 +17,7 @@ class WelcomeScreen extends StatelessWidget {
           Color(0xff281537),
         ])),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 90),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 120),
           child: Column(children: [
             const Column(
               children: [
@@ -108,7 +109,7 @@ class WelcomeScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ), //
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -77,7 +77,7 @@ class notificationBord extends StatelessWidget {
                     leading: const CircleAvatar(
                       radius: 25,
                       backgroundImage: AssetImage("assets/images/logo.png"),
-                      backgroundColor: Color.fromARGB(255, 245, 147, 147),
+                      backgroundColor: Color.fromARGB(255, 255, 254, 254),
                     ),
                     title: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
