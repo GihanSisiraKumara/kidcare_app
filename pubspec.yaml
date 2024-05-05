@@ -99,6 +99,7 @@ flutter:
     - assets/animations/error.json
     - assets/images/pro.png
     - assets/images/logo.png
+    - assets/images/litview.jpg
 
     
     

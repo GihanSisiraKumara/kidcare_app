@@ -66,23 +66,46 @@ class DashBord extends StatelessWidget {
       ),
       drawer: Drawer(
         child: Container(
-          color: const Color.fromARGB(255, 221, 167, 167),
+          color: const Color.fromARGB(255, 227, 188, 188),
           child: ListView(
             children: [
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 221, 167, 167),
+              UserAccountsDrawerHeader(
+                accountName: const Text('KGM Sisira'),
+                accountEmail: const Text('gihan.sisira@gmail.com'),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: ClipRRect(
+                    child: Image.asset(
+                      "assets/images/logo.png",
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    "assets/images/logo.png",
-                    width: 2,
-                    height: 2,
-                    alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/images/litview.jpg',
+                    ),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
+              // DrawerHeader(
+              // decoration: const BoxDecoration(
+              // color: Color.fromARGB(255, 221, 167, 167),
+              // ),
+              // child: ClipRRect(
+              // borderRadius: BorderRadius.circular(10),
+              // child: Image.asset(
+              // "assets/images/logo.png",
+              // width: 2,
+              // height: 2,
+              // alignment: Alignment.center,
+              // ),
+              // ),
+              // ),
               ListTile(
                 leading: const Icon(
                   Icons.home,
