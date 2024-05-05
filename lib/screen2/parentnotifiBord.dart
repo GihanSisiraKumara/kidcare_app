@@ -5,8 +5,7 @@ class parentnotifiBord extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Your existing code here
-
-    return Container(); // Replace Container() with the appropriate widget you want to return
+    Size size = MediaQuery.of(context).size;
+    return const Scaffold();
   }
 }
