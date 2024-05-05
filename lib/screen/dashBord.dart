@@ -147,7 +147,7 @@ class DashBord extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const profileBord(
+                      builder: (context) => const profileBoard(
                         title: '',
                       ),
                     ),

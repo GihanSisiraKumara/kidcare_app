@@ -1,14 +1,40 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class profileBord extends StatelessWidget {
-  const profileBord({super.key, required String title});
+class profileBoard extends StatefulWidget {
+  const profileBoard({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _ProfileBoardState createState() => _ProfileBoardState();
+}
+
+class _ProfileBoardState extends State<profileBoard> {
+  File? _image;
+
+  Future<void> _getImage() async {
+    final pickedFile =
+        await ImagePicker().getImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 216, 194, 193),
+      backgroundColor: const Color.fromARGB(255, 240, 229, 229),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 252, 250, 251),
         centerTitle: true,
         title: const Text(
           'Profile',
@@ -23,85 +49,64 @@ class profileBord extends StatelessWidget {
             iconColor: MaterialStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
             backgroundColor: MaterialStateProperty.all<Color>(
-                const Color.fromARGB(255, 240, 113, 113)),
+                const Color.fromARGB(255, 234, 117, 117)),
           ),
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        // actions: [
-        // Padding(
-        // padding: const EdgeInsets.symmetric(horizontal: 10),
-        // child: ElevatedButton(
-        // onPressed: () {
-        // Navigator.pushReplacementNamed(context, '/login');
-        // },
-        // style: ElevatedButton.styleFrom(
-        // backgroundColor: const Color.fromARGB(255, 236, 115, 107),
-        // ),
-        // child: const Text(
-        // "Logout",
-        // style: TextStyle(
-        // color: Colors.white,
-        // ),
-        // ),
-        // ),
-        // ),
-        // ],
       ),
       body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/red2.jpg'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Stack(
+              alignment: Alignment.center,
               children: [
-                // const SizedBox(height: 0),
-                const CircleAvatar(
-                  radius: 70,
-                  backgroundImage: AssetImage('assets/images/pro.png'),
-                ),
-                const SizedBox(height: 20),
-                itemProfile('Name', 'Ahad Hashmi', CupertinoIcons.person),
-                const SizedBox(height: 20),
-                itemProfile('Phone', '03107085816', CupertinoIcons.phone),
-                const SizedBox(height: 20),
-                itemProfile('Address', 'abc address, xyz city',
-                    CupertinoIcons.location),
-                const SizedBox(height: 20),
-                itemProfile('Email', 'ahadhashmideveloper@gmail.com',
-                    CupertinoIcons.mail),
-                const SizedBox(
-                  height: 20,
-                ),
-                itemProfile('Paasord', '**************', CupertinoIcons.lock),
-                const SizedBox(
-                  height: 20,
-                ),
                 Container(
-                  width: double.infinity,
+                  height: 150,
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xffB81736),
-                        Color(0xff281537),
-                      ],
+                    image: DecorationImage(
+                      image: _image != null
+                          ? FileImage(_image!)
+                          : const AssetImage('assets/images/pro.png')
+                              as ImageProvider,
+                      fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.circular(10),
                   ),
-                  child: ElevatedButton(
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: IconButton(
+                    icon: const Icon(Icons.camera_alt),
+                    onPressed: _getImage,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildProfileItem(
+                      'Name', 'Ahad Hashmi', CupertinoIcons.person),
+                  _buildProfileItem(
+                      'Phone', '03107085816', CupertinoIcons.phone),
+                  _buildProfileItem('Address', 'abc address, xyz city',
+                      CupertinoIcons.location),
+                  _buildProfileItem('Email', 'ahadhashmideveloper@gmail.com',
+                      CupertinoIcons.mail),
+                  _buildProfileItem(
+                      'Password', '**************', CupertinoIcons.lock),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(15),
-                      backgroundColor: Colors
-                          .transparent, // Set primary color to transparent
-                      shadowColor: Colors.transparent, // Hide shadow
+                      backgroundColor: const Color(0xffB81736),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -114,33 +119,58 @@ class profileBord extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
   }
 
-  itemProfile(String title, String subtitle, IconData iconData) {
+  Widget _buildProfileItem(String title, String subtitle, IconData iconData) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(50),
-          boxShadow: const [
-            BoxShadow(
-                offset: Offset(0, 5),
-                color: Color.fromARGB(255, 77, 66, 64),
-                spreadRadius: 1,
-                blurRadius: 2),
-          ]),
-      child: ListTile(
-        title: Text(title),
-        subtitle: Text(subtitle),
-        leading: Icon(iconData),
-        trailing: Icon(Icons.arrow_forward, color: Colors.grey.shade400),
-        tileColor: Colors.white,
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 1,
+            blurRadius: 3,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(iconData, color: const Color.fromARGB(255, 247, 84, 84)),
+          const SizedBox(width: 15),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                subtitle,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.black54,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

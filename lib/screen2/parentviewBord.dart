@@ -46,8 +46,9 @@ class parentviewBord extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 const CircleAvatar(
+                  backgroundColor: Colors.white,
                   radius: 70,
-                  backgroundImage: AssetImage('assets/images/kidcare.png'),
+                  backgroundImage: AssetImage('assets/images/logo.png'),
                 ),
                 const SizedBox(height: 20),
                 itemProfile(
