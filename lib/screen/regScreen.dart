@@ -86,6 +86,9 @@ class RegScreenState extends State<RegScreen> {
             height: double.infinity,
             width: double.infinity,
             decoration: const BoxDecoration(
+              // image: DecorationImage(
+              // image: AssetImage('assets/images/regscreenbackground.jpg')
+              // ),
               gradient: LinearGradient(colors: [
                 Color(0xffB81736),
                 Color(0xff281537),
@@ -116,14 +119,6 @@ class RegScreenState extends State<RegScreen> {
                       ),
                     ],
                   ),
-                  subtitle: Text(
-                    'Sign Up Here',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color.fromARGB(255, 246, 237, 237),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                 ),
                 SizedBox(height: 30),
               ],
@@ -153,6 +148,15 @@ class RegScreenState extends State<RegScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Sign Up Here',
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Color.fromARGB(255, 253, 252, 252),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       TextField(
                         controller: name,
                         decoration: const InputDecoration(
@@ -295,7 +299,7 @@ class RegScreenState extends State<RegScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 20,
                       ),
                       Align(
                         alignment: Alignment.bottomRight,

@@ -91,42 +91,38 @@ class LoginScreenState extends State<LoginScreen> {
                 Color(0xff281537),
               ]),
             ),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 70),
+                SizedBox(height: 50),
                 ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 25),
-                  title: const Text(
-                    'Login To\nKidcare App',
-                    style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  trailing: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.transparent,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        width:
-                            60, // Adjust width and height to fit the circular avatar
-                        height: 60,
-                        alignment: Alignment.center,
-                        fit: BoxFit
-                            .cover, // Ensure the image covers the entire area
+                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                  title: Row(
+                    children: [
+                      Text(
+                        'KIDCARE',
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Color.fromARGB(255, 247, 245, 245),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
+                      SizedBox(width: 20), // Space between text and image
+                      CircleAvatar(
+                        radius:
+                            80, // Adjust the radius to fit the size you want
+                        backgroundImage: AssetImage('assets/images/logo.png'),
+                        backgroundColor: Colors.transparent,
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: 30),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200.0),
+            padding: const EdgeInsets.only(top: 250.0),
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -145,6 +141,14 @@ class LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const Text(
+                      'Wellcome Back',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Color.fromARGB(255, 253, 252, 252),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     TextField(
                       controller: name,
                       decoration: const InputDecoration(
@@ -203,7 +207,7 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 60,
+                      height: 20,
                     ),
                     GestureDetector(
                       onTap: () {
