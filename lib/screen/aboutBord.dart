@@ -9,10 +9,6 @@ class aboutBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      // appBar: AppBar(
-      // backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      // title: const Text(""),
-      // ),
       body: Center(
         child: Column(
           children: [
@@ -31,7 +27,7 @@ class aboutBord extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              "Your child's safety, our priority\n A secure mobile app designed to protect and care for children, ensuring peace of mind for parents everywhere.",
+              "Your child's safety, our priority\n A secure mobile app designed to protect and\n care for children, ensuring peace of mind for\n parents everywhere.",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromARGB(255, 230, 36, 36),
@@ -39,7 +35,7 @@ class aboutBord extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 70),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

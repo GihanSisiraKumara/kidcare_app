@@ -9,10 +9,30 @@ class doneBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      // appBar: AppBar(
-      // backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      // title: const Text(""),
-      // ),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 244, 215, 213),
+        centerTitle: true,
+        title: const Text(
+          '',
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 247, 84, 84),
+              fontWeight: FontWeight.bold),
+        ),
+        leading: IconButton(
+          style: ButtonStyle(
+            iconSize: MaterialStateProperty.all<double>(30),
+            iconColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 252, 251, 251)),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 240, 113, 113)),
+          ),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Center(
         child: Column(
           children: [
@@ -20,7 +40,7 @@ class doneBord extends StatelessWidget {
             Container(
               child: Lottie.asset('assets/animations/Animation - 2.json'),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 1),
             const Text(
               "Done!",
               style: TextStyle(
@@ -31,7 +51,7 @@ class doneBord extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              "Everything is ready For you\n to start using the app. Enjoy the app and keep your child safe!",
+              "Everything is ready For you to start using the app.\n Enjoy the app and keep your child safe!",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromARGB(255, 230, 36, 36),

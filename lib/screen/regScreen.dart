@@ -80,16 +80,6 @@ class RegScreenState extends State<RegScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      // backgroundColor: Colors.transparent,
-      // flexibleSpace: Container(
-      // decoration: const BoxDecoration(
-      // gradient: LinearGradient(
-      // colors: [Color(0xffB81736), Color(0xff281537)],
-      // ),
-      // ),
-      // ),
-      // ),
       body: Stack(
         children: [
           Container(
@@ -101,49 +91,47 @@ class RegScreenState extends State<RegScreen> {
                 Color(0xff281537),
               ]),
             ),
-            child: Column(
+            child: const Column(
               children: [
-                const SizedBox(height: 70),
+                SizedBox(height: 50),
                 ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: const Text(
-                    'Hello!',
-                    style: TextStyle(
-                        fontSize: 40,
-                        color: Color.fromARGB(255, 247, 245, 245),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: const Text(
-                    'Sign Up ',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Color.fromARGB(255, 246, 237, 237),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  trailing: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.transparent,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        width:
-                            60, // Adjust width and height to fit the circular avatar
-                        height: 60,
-                        alignment: Alignment.center,
-                        fit: BoxFit
-                            .cover, // Ensure the image covers the entire area
+                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                  title: Row(
+                    children: [
+                      Text(
+                        'Hello!',
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Color.fromARGB(255, 247, 245, 245),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+
+                      SizedBox(width: 80), // Space between text and image
+                      CircleAvatar(
+                        radius:
+                            80, // Adjust the radius to fit the size you want
+                        backgroundImage: AssetImage('assets/images/logo.png'),
+                        backgroundColor: Colors.transparent,
+                      ),
+                    ],
+                  ),
+                  subtitle: Text(
+                    'Sign Up Here',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color.fromARGB(255, 246, 237, 237),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: 30),
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 220.0,
+              top: 250.0,
             ),
             child: Container(
               decoration: const BoxDecoration(
@@ -319,7 +307,7 @@ class RegScreenState extends State<RegScreen> {
                               "Already have an account?",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 26, 27, 29)),
+                                  color: Color.fromARGB(255, 51, 53, 56)),
                             ),
                             TextButton(
                               onPressed: () {

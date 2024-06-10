@@ -9,10 +9,30 @@ class aboutlocationBord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      // appBar: AppBar(
-      // backgroundColor: const Color.fromARGB(255, 244, 215, 213),
-      // title: const Text(""),
-      // ),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 244, 215, 213),
+        centerTitle: true,
+        title: const Text(
+          '',
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 247, 84, 84),
+              fontWeight: FontWeight.bold),
+        ),
+        leading: IconButton(
+          style: ButtonStyle(
+            iconSize: MaterialStateProperty.all<double>(30),
+            iconColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 252, 251, 251)),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 240, 113, 113)),
+          ),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Center(
         child: Column(
           children: [
@@ -32,7 +52,7 @@ class aboutlocationBord extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             const Text(
-              "Stay in the loop and ensure your child's safety\n with our KidCare app's location-sharing feature. Share their whereabouts effortlessly for ultimate peace of mind !",
+              "Stay in the loop and ensure your child's safety\n with our KidCare app's location-sharing feature.\n Share their whereabouts effortlessly\n for ultimate peace of mind !",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromARGB(255, 230, 36, 36),
@@ -40,7 +60,7 @@ class aboutlocationBord extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            const SizedBox(height: 60),
+            const SizedBox(height: 85),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

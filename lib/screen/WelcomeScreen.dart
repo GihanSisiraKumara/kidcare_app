@@ -29,7 +29,7 @@ class WelcomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 40,
+              height: 60,
             ),
             const Text(
               'Welcome To Kidcare',
@@ -67,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
             // ),
             // ),
             const SizedBox(
-              height: 30,
+              height: 40,
             ),
             GestureDetector(
               onTap: () {
@@ -99,7 +99,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             //const Spacer(),
             const SizedBox(
-              height: 80,
+              height: 100,
             ),
             const Text(
               'Login with Social Media',
@@ -109,7 +109,7 @@ class WelcomeScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ), //
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
