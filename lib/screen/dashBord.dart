@@ -24,7 +24,7 @@ class DashBord extends StatelessWidget {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xffB81736), Color(0xff281537)],
+              colors: [Color(0xffB81736), Color.fromARGB(255, 46, 24, 62)],
             ),
           ),
         ),
@@ -92,20 +92,6 @@ class DashBord extends StatelessWidget {
                   ),
                 ),
               ),
-              // DrawerHeader(
-              // decoration: const BoxDecoration(
-              // color: Color.fromARGB(255, 221, 167, 167),
-              // ),
-              // child: ClipRRect(
-              // borderRadius: BorderRadius.circular(10),
-              // child: Image.asset(
-              // "assets/images/logo.png",
-              // width: 2,
-              // height: 2,
-              // alignment: Alignment.center,
-              // ),
-              // ),
-              // ),
               ListTile(
                 leading: const Icon(
                   Icons.home,
