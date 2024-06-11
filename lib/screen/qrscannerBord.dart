@@ -29,7 +29,7 @@ class _qrscannerBordState extends State<qrscannerBord> {
             'QR Scanner',
             style: TextStyle(
                 fontSize: 22,
-                color: Color.fromARGB(255, 247, 84, 84),
+                color: Color.fromARGB(255, 250, 202, 202),
                 fontWeight: FontWeight.bold),
           ),
           backgroundColor: const Color.fromARGB(255, 249, 247, 247),
@@ -56,7 +56,9 @@ class _qrscannerBordState extends State<qrscannerBord> {
               },
               icon: Icon(
                 Icons.flash_on,
-                color: isFlashOn ? Colors.white : Colors.black,
+                color: isFlashOn
+                    ? Colors.white
+                    : const Color.fromARGB(255, 234, 117, 117),
               ),
             ),
             IconButton(
@@ -68,10 +70,19 @@ class _qrscannerBordState extends State<qrscannerBord> {
               },
               icon: Icon(
                 Icons.flip_camera_android,
-                color: isBackCamera ? Colors.white : Colors.black,
+                color: isBackCamera
+                    ? Colors.white
+                    : const Color.fromARGB(255, 234, 117, 117),
               ),
-            )
+            ),
           ],
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xffB81736), Color(0xff281537)],
+              ),
+            ),
+          ),
         ),
         body: Container(
           width: double.infinity,

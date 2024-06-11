@@ -189,7 +189,7 @@ class _eservicessBordState extends State<eservicessBord> {
           'Emergency Services!',
           style: TextStyle(
               fontSize: 22,
-              color: Color.fromARGB(255, 247, 84, 84),
+              color: Color.fromARGB(255, 250, 202, 202),
               fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -204,6 +204,13 @@ class _eservicessBordState extends State<eservicessBord> {
           onPressed: () {
             Navigator.pop(context);
           },
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xffB81736), Color(0xff281537)],
+            ),
+          ),
         ),
       ),
       body: Padding(

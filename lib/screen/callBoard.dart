@@ -31,10 +31,10 @@ class _CallBoardState extends State<CallBoard> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Call',
+          "Call",
           style: TextStyle(
               fontSize: 22,
-              color: Color.fromARGB(255, 247, 84, 84),
+              color: Color.fromARGB(255, 250, 202, 202),
               fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -49,6 +49,14 @@ class _CallBoardState extends State<CallBoard> {
           onPressed: () {
             Navigator.pop(context);
           },
+        ),
+        backgroundColor: Colors.transparent,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xffB81736), Color(0xff281537)],
+            ),
+          ),
         ),
       ),
       body: Container(
@@ -85,7 +93,7 @@ class _CallBoardState extends State<CallBoard> {
                       ),
                       child: ListTile(
                         isThreeLine:
-                            false, //get more space in eact nortification container.
+                            false, //get more space in each notification container.
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: size.width * 0.08),
                         leading: const CircleAvatar(
@@ -127,7 +135,7 @@ class _CallBoardState extends State<CallBoard> {
               GestureDetector(
                 onTap: callNumber,
                 child: const Padding(
-                  padding: EdgeInsets.all(50.0),
+                  padding: EdgeInsets.all(70.0),
                   child: Center(
                     child: SizedBox(
                       child: CircleAvatar(
