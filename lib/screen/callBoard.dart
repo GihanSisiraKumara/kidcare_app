@@ -140,7 +140,8 @@ class _CallBoardState extends State<CallBoard> {
                     child: SizedBox(
                       child: CircleAvatar(
                         radius: 67,
-                        backgroundImage: AssetImage('assets/images/call.avif'),
+                        backgroundImage:
+                            AssetImage("assets/images/redcall.jpg"),
                       ),
                     ),
                   ),

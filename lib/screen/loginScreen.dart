@@ -188,13 +188,13 @@ class LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           // Add your logic for handling forgot password here
                           // For example, you can show a dialog or navigate to a forgot password screen.
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const DashBord(
-                                      title: '',
-                                    )),
-                          );
+                          // Navigator.push(
+                          // context,
+                          // MaterialPageRoute(
+                          // builder: (context) => const DashBord(
+                          // title: '',
+                          // )),
+                          // );
                         },
                         child: const Text(
                           'Forgot Password?',
