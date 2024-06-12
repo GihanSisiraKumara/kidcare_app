@@ -40,7 +40,9 @@ class RegScreenState extends State<RegScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
+              builder: (context) => const LoginScreen(
+                title: '',
+              ),
             ),
           );
         } else {
@@ -318,8 +320,9 @@ class RegScreenState extends State<RegScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          const LoginScreen()),
+                                      builder: (context) => const LoginScreen(
+                                            title: '',
+                                          )),
                                 );
                               },
                               child: const Text(

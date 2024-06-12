@@ -3,11 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:kidcare/screen/dashBord.dart';
+import 'package:kidcare/screen/forgotpBord.dart';
 import 'package:kidcare/screen/regScreen.dart';
 import 'package:kidcare/screen2/adminBord.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required String title});
 
   @override
   LoginScreenState createState() => LoginScreenState();
@@ -188,13 +189,13 @@ class LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           // Add your logic for handling forgot password here
                           // For example, you can show a dialog or navigate to a forgot password screen.
-                          // Navigator.push(
-                          // context,
-                          // MaterialPageRoute(
-                          // builder: (context) => const DashBord(
-                          // title: '',
-                          // )),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ForgotpBord(
+                                      title: '',
+                                    )),
+                          );
                         },
                         child: const Text(
                           'Forgot Password?',

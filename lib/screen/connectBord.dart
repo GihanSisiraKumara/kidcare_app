@@ -40,7 +40,9 @@ class RegScreenState extends State<ConnectScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
+              builder: (context) => const LoginScreen(
+                title: '',
+              ),
             ),
           );
         } else {
