@@ -45,6 +45,7 @@ class _ForgotpBordState extends State<ForgotpBord> {
       ),
     );
   }
+
   Widget _buildForm() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,8 +122,6 @@ class _ForgotpBordState extends State<ForgotpBord> {
                     title: '',
                   )),
         );
-        // debugPrint("Email : ${emailController.text}");
-        // debugPrint("Password : ${passwordController.text}");
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
@@ -142,9 +141,7 @@ class _ForgotpBordState extends State<ForgotpBord> {
   Widget _buildSignUpText() {
     return Center(
       child: GestureDetector(
-        onTap: () {
-          // Handle Sign Up action
-        },
+        onTap: () {},
         child: RichText(
           text: const TextSpan(
             text: "Need more help? ",

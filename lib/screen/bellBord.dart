@@ -19,10 +19,10 @@ class bellBord extends StatelessWidget {
         ),
         leading: IconButton(
           style: ButtonStyle(
-            iconSize: MaterialStateProperty.all<double>(30),
-            iconColor: MaterialStateProperty.all<Color>(
+            iconSize: WidgetStateProperty.all<double>(30),
+            iconColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 234, 117, 117)),
           ),
           icon: const Icon(Icons.arrow_back),
@@ -58,6 +58,7 @@ class bellBord extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const DashBord(
                                 title: '',
+                                name: '',
                               )),
                     );
                   },

@@ -12,7 +12,9 @@ import 'package:kidcare/screen/shedulBord.dart';
 import 'package:kidcare/screen/viewBord.dart';
 
 class DashBord extends StatelessWidget {
-  const DashBord({Key? key, required String title}) : super(key: key);
+  const DashBord({Key? key, required String title, required this.name})
+      : super(key: key);
+  final String name;
 
   @override
   // Import Cupertino package
@@ -111,6 +113,7 @@ class DashBord extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => const DashBord(
                         title: '',
+                        name: '',
                       ),
                     ),
                   );
@@ -327,6 +330,7 @@ class DashBord extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => const DashBord(
                         title: '',
+                        name: '',
                       ), // create help dart page
                     ),
                   );

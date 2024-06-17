@@ -42,6 +42,7 @@ class LoginScreenState extends State<LoginScreen> {
           MaterialPageRoute(
             builder: (context) => const DashBord(
               title: '',
+              name: '',
             ),
           ),
         );

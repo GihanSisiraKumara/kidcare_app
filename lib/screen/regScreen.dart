@@ -107,7 +107,7 @@ class RegScreenState extends State<RegScreen> {
                         'Hello!',
                         style: TextStyle(
                           fontSize: 40,
-                          color: Color.fromARGB(255, 247, 245, 245),
+                          color: Color.fromARGB(255, 242, 196, 196),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -208,7 +208,7 @@ class RegScreenState extends State<RegScreen> {
                         controller: address,
                         decoration: const InputDecoration(
                             suffixIcon: Icon(
-                              Icons.visibility_off,
+                              Icons.location_on,
                               color: Color.fromARGB(255, 21, 19, 19),
                             ),
                             label: Text(
