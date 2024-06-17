@@ -141,7 +141,15 @@ class _ForgotpBordState extends State<ForgotpBord> {
   Widget _buildSignUpText() {
     return Center(
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const LoginScreen(
+                      title: '',
+                    )),
+          );
+        },
         child: RichText(
           text: const TextSpan(
             text: "Need more help? ",

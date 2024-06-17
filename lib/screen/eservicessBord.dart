@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kidcare/screen/callBoard.dart';
 
 class eservicessBord extends StatefulWidget {
   const eservicessBord({super.key, required String title});
@@ -194,10 +195,10 @@ class _eservicessBordState extends State<eservicessBord> {
         ),
         leading: IconButton(
           style: ButtonStyle(
-            iconSize: MaterialStateProperty.all<double>(30),
-            iconColor: MaterialStateProperty.all<Color>(
+            iconSize: WidgetStateProperty.all<double>(30),
+            iconColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 234, 117, 117)),
           ),
           icon: const Icon(Icons.arrow_back),
@@ -240,12 +241,23 @@ class _eservicessBordState extends State<eservicessBord> {
                         elevation: 1,
                         margin: const EdgeInsets.symmetric(vertical: 2),
                         child: ListTile(
-                          leading: CircleAvatar(
-                            radius: 30.0,
-                            backgroundImage:
-                                NetworkImage(_foundUsers[index]['image']),
-                            backgroundColor:
-                                const Color.fromARGB(0, 170, 61, 61),
+                          leading: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const CallBoard(
+                                          title: '',
+                                        )),
+                              );
+                            },
+                            child: CircleAvatar(
+                              radius: 30.0,
+                              backgroundImage:
+                                  NetworkImage(_foundUsers[index]['image']),
+                              backgroundColor:
+                                  const Color.fromARGB(0, 170, 61, 61),
+                            ),
                           ),
                           title: Text(_foundUsers[index]['name']),
                           subtitle: Text('${_foundUsers[index]["des"]}'),
