@@ -107,9 +107,9 @@ class RegScreenState extends State<ConnectScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 30.0),
+                padding: EdgeInsets.only(top: 10.0),
                 child: CircleAvatar(
-                  radius: 90, // Adjust the radius to fit the size you want
+                  radius: 100, // Adjust the radius to fit the size you want
                   backgroundImage: AssetImage('assets/images/paconnect.png'),
                   backgroundColor: Colors.transparent,
                 ),
