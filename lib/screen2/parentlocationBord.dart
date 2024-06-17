@@ -58,27 +58,34 @@ class _LocationBoardState extends State<parentlocationBord> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 252, 250, 251),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 249, 250, 251),
         title: const Text(
           'Find Location',
           style: TextStyle(
               fontSize: 22,
-              color: Color.fromARGB(255, 247, 84, 84),
+              color: Color.fromARGB(255, 250, 202, 202),
               fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           style: ButtonStyle(
-            iconSize: MaterialStateProperty.all<double>(30),
-            iconColor: MaterialStateProperty.all<Color>(
+            iconSize: WidgetStateProperty.all<double>(30),
+            iconColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 234, 117, 117)),
           ),
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xffB81736), Color(0xff281537)],
+            ),
+          ),
         ),
       ),
       body: Column(

@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:kidcare/screen/loginScreen.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class ConnectScreen extends StatefulWidget {
   const ConnectScreen({super.key, required this.title});
@@ -37,14 +38,19 @@ class RegScreenState extends State<ConnectScreen> {
         });
         var response = jsonDecode(res.body);
         if (response["success"] == "true") {
-          print("Insert Successful!");
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const LoginScreen(
-                title: '',
-              ),
-            ),
+          // print("Insert Successful!");
+          // Navigator.push(
+          // context,
+          // MaterialPageRoute(
+          // builder: (context) => const LoginScreen(
+          // title: '',
+          // ),
+          // ),
+          // );
+          QuickAlert.show(
+            context: context,
+            type: QuickAlertType.success,
+            text: 'Transaction Completed Successfully!',
           );
         } else {
           print("Some Issue found!");

@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:kidcare/screen/loginScreen.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class RegScreen extends StatefulWidget {
   const RegScreen({super.key, required String title});
@@ -53,8 +55,11 @@ class RegScreenState extends State<RegScreen> {
       }
     } else {
       //print("please fill all the fileds");
-      _showErrorDialog(
-        'Please fill all the fileds and try again.',
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.error,
+        title: 'Unsuccesfull Sign UP!.',
+        text: 'Sorry, something went wrong. Please try again!',
       );
     }
   }

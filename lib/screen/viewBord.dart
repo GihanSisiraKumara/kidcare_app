@@ -20,10 +20,10 @@ class viewBord extends StatelessWidget {
         ),
         leading: IconButton(
           style: ButtonStyle(
-            iconSize: MaterialStateProperty.all<double>(30),
-            iconColor: MaterialStateProperty.all<Color>(
+            iconSize: WidgetStateProperty.all<double>(30),
+            iconColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 234, 117, 117)),
           ),
           icon: const Icon(Icons.arrow_back),
@@ -118,9 +118,10 @@ class viewBord extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SheduleBord(
-                                  title: '',
-                                )),
+                          builder: (context) => const SheduleBord(
+                            title: '',
+                          ),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -166,8 +167,8 @@ class viewBord extends StatelessWidget {
         subtitle: Text(subtitle),
         leading: Icon(iconData),
         trailing: const Icon(Icons.arrow_forward,
-            color: Color.fromARGB(255, 6, 6, 6)),
-        tileColor: Colors.white,
+            color: Color.fromARGB(255, 237, 111, 111)),
+        tileColor: const Color.fromARGB(255, 241, 209, 209),
       ),
     );
   }

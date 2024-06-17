@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/dashBord.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class bellBord extends StatelessWidget {
   const bellBord({super.key, required String title});
@@ -53,13 +54,10 @@ class bellBord extends StatelessWidget {
                 const SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const DashBord(
-                                title: '',
-                                name: '',
-                              )),
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.warning,
+                      text: 'Your Emergency alert is going to owner!',
                     );
                   },
                   child: const CircleAvatar(
@@ -71,12 +69,40 @@ class bellBord extends StatelessWidget {
                 SizedBox(
                   width: 130,
                   height: 50,
-                  child: ElevatedButton(
-                      onPressed: () {},
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(255, 206, 80, 105),
+                          Color.fromARGB(255, 92, 67, 111)
+                        ],
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        QuickAlert.show(
+                          context: context,
+                          type: QuickAlertType.confirm,
+                          text: 'Do you want to Disable Bell',
+                          confirmBtnText: 'Yes',
+                          cancelBtnText: 'No',
+                          confirmBtnColor: Colors.green,
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.all(15),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
                       ),
-                      child: const Text('Disable Bell')),
+                      child: const Text(
+                        'Disable Bell',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 20),
                 itemProfile(

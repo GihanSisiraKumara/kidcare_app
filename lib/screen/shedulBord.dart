@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:kidcare/screen/pinwayBord.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class SheduleBord extends StatefulWidget {
   const SheduleBord({Key? key, required String title}) : super(key: key);
@@ -45,8 +47,10 @@ class _SheduleState extends State<SheduleBord> {
         });
         var response = jsonDecode(res.body);
         if (response["success"] == "true") {
-          _showSuccessDialog(
-            'Your sheduling is successed!.',
+          QuickAlert.show(
+            context: context,
+            type: QuickAlertType.success,
+            text: 'Your Sheduling  is Successfully!',
           );
         } else {
           _showErrorDialog(
@@ -57,30 +61,13 @@ class _SheduleState extends State<SheduleBord> {
         print(e);
       }
     } else {
-      _showAllfillDialog(
-        'Please fill all of the feilds!.',
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.error,
+        title: 'Oops...',
+        text: 'Please fill all of the feilds!',
       );
     }
-  }
-
-  void _showSuccessDialog(String message) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Sheduling Success '),
-          content: Text(message),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   void _showErrorDialog(String message) {
@@ -89,26 +76,6 @@ class _SheduleState extends State<SheduleBord> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Sheduling Success'),
-          content: Text(message),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _showAllfillDialog(String message) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Error '),
           content: Text(message),
           actions: <Widget>[
             TextButton(

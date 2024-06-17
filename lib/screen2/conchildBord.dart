@@ -60,13 +60,21 @@ class conchildBordState extends State<conchildBord> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(""),
+        backgroundColor: const Color.fromARGB(255, 252, 250, 251),
+        centerTitle: true,
+        title: const Text(
+          'Connect Owner',
+          style: TextStyle(
+              fontSize: 22,
+              color: Color.fromARGB(255, 250, 202, 202),
+              fontWeight: FontWeight.bold),
+        ),
         leading: IconButton(
           style: ButtonStyle(
-            iconSize: MaterialStateProperty.all<double>(30),
-            iconColor: MaterialStateProperty.all<Color>(
+            iconSize: WidgetStateProperty.all<double>(30),
+            iconColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 234, 117, 117)),
           ),
           icon: const Icon(Icons.arrow_back),
@@ -74,7 +82,6 @@ class conchildBordState extends State<conchildBord> {
             Navigator.pop(context);
           },
         ),
-        backgroundColor: Colors.transparent,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -94,171 +101,162 @@ class conchildBordState extends State<conchildBord> {
                 Color(0xff281537),
               ]),
             ),
-            child: const Padding(
-              padding: EdgeInsets.only(top: 10.0, left: 80),
-              child: Text(
-                'Connect Your\n     Parent',
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 140.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40)),
-                color: Colors.white,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),
+                child: CircleAvatar(
+                  radius: 100, // Adjust the radius to fit the size you want
+                  backgroundImage: AssetImage('assets/images/paconnect.png'),
+                  backgroundColor: Colors.transparent,
+                ),
               ),
-              height: double.infinity,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 18.0, right: 18),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextField(
-                        controller: name,
-                        decoration: const InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.person,
-                              color: Color.fromARGB(255, 11, 10, 10),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40),
+                          topRight: Radius.circular(40)),
+                      color: Colors.white,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextField(
+                              controller: name,
+                              decoration: const InputDecoration(
+                                  suffixIcon: Icon(
+                                    Icons.check,
+                                    color: Color(0xffB81736),
+                                  ),
+                                  label: Text(
+                                    'Name',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xffB81736),
+                                    ),
+                                  )),
                             ),
-                            label: Text(
-                              'Name',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xffB81736),
+                            TextField(
+                              controller: phone,
+                              decoration: const InputDecoration(
+                                  suffixIcon: Icon(
+                                    Icons.check,
+                                    color: Color(0xffB81736),
+                                  ),
+                                  label: Text(
+                                    'Phone Number',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xffB81736),
+                                    ),
+                                  )),
+                            ),
+                            TextField(
+                              controller: address,
+                              decoration: const InputDecoration(
+                                  suffixIcon: Icon(
+                                    Icons.location_on,
+                                    color: Color(0xffB81736),
+                                  ),
+                                  label: Text(
+                                    'Address',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xffB81736),
+                                    ),
+                                  )),
+                            ),
+                            const SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Checkbox(
+                                  checkColor: Colors.white,
+                                  activeColor: const Color(0xffB81736),
+                                  value: isParent,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      isParent = value ?? false;
+                                      if (isParent) {
+                                        isChild = false;
+                                      }
+                                    });
+                                  },
+                                ),
+                                const Text(" Parent"),
+                              ],
+                            ),
+                            const SizedBox(height: 0),
+                            Row(
+                              children: [
+                                Checkbox(
+                                  checkColor: Colors.white,
+                                  activeColor: const Color(0xffB81736),
+                                  value: isChild,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      isChild = value ?? false;
+                                      if (isChild) {
+                                        isParent = false;
+                                      }
+                                    });
+                                  },
+                                ),
+                                const Text(" Child"),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                insertrecord();
+                              },
+                              child: Container(
+                                height: 55,
+                                width: 300,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  gradient: const LinearGradient(colors: [
+                                    Color(0xffB81736),
+                                    Color(0xff281537),
+                                  ]),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    'Connect',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: Colors.white),
+                                  ),
+                                ),
                               ),
-                            )),
-                      ),
-                      TextField(
-                        controller: phone,
-                        decoration: const InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.phone,
-                              color: Color.fromARGB(255, 15, 12, 12),
                             ),
-                            label: Text(
-                              'Phone Number',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xffB81736),
-                              ),
-                            )),
-                      ),
-                      TextField(
-                        controller: password,
-                        decoration: const InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.key_off,
-                              color: Color.fromARGB(255, 15, 12, 12),
+                            const SizedBox(
+                              height: 20,
                             ),
-                            label: Text(
-                              'Password',
+                            const Text(
+                              'Connect your owner and safe their life',
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xffB81736),
-                              ),
-                            )),
-                      ),
-                      TextField(
-                        controller: address,
-                        decoration: const InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.location_city,
-                              color: Color.fromARGB(255, 12, 10, 10),
-                            ),
-                            label: Text(
-                              'Address',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xffB81736),
-                              ),
-                            )),
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Checkbox(
-                            checkColor: Colors.white,
-                            activeColor: Colors.green,
-                            value: isParent,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                isParent = value ?? false;
-                                if (isParent) {
-                                  isChild = false;
-                                }
-                              });
-                            },
-                          ),
-                          const Text(" Parent"),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Checkbox(
-                            checkColor: Colors.white,
-                            activeColor: Colors.green,
-                            value: isChild,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                isChild = value ?? false;
-                                if (isChild) {
-                                  isParent = false;
-                                }
-                              });
-                            },
-                          ),
-                          const Text(" Child"),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          insertrecord();
-                        },
-                        child: Container(
-                          height: 55,
-                          width: 300,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            gradient: const LinearGradient(colors: [
-                              Color(0xffB81736),
-                              Color(0xff281537),
-                            ]),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'Connect',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white),
-                            ),
-                          ),
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 80,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
         ],
       ),
