@@ -50,6 +50,7 @@ dependencies:
   qr_scanner_overlay: ^0.0.2
   qr_flutter: ^4.1.0
   image_picker: ^0.8.4+2
+  quickalert: ^1.1.0
   
 
   
