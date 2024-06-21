@@ -60,17 +60,17 @@ class viewBord extends StatelessWidget {
                 const SizedBox(height: 20),
                 itemProfile(
                   'Name',
-                  'Ahad Hashmi',
+                  'Himantha',
                   CupertinoIcons.person,
                 ),
                 const SizedBox(height: 20),
-                itemProfile('Date', '2024/03/23', CupertinoIcons.calendar),
+                itemProfile('Date', '2024/06/21', CupertinoIcons.calendar),
                 const SizedBox(height: 20),
                 itemProfile(
-                    'Leave at Home', '07. 10 A.M.', CupertinoIcons.time),
+                    'Leave at Home', '06. 40 A.M.', CupertinoIcons.time),
                 const SizedBox(height: 20),
                 itemProfile(
-                    'Arival at Scool', '07.30 A.M', CupertinoIcons.time),
+                    'Arival at Scool', '07.20 A.M', CupertinoIcons.time),
                 const SizedBox(
                   height: 20,
                 ),
