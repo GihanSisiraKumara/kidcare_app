@@ -58,7 +58,7 @@ class RegScreenState extends State<RegScreen> {
       QuickAlert.show(
         context: context,
         type: QuickAlertType.error,
-        title: 'Unsuccesfull Sign UP!.',
+        title: 'Unsuccessful Sign UP!.',
         text: 'Sorry, something went wrong. Please try again!',
       );
     }
@@ -117,7 +117,7 @@ class RegScreenState extends State<RegScreen> {
                         ),
                       ),
 
-                      SizedBox(width: 80), // Space between text and image
+                      SizedBox(width: 50), // Space between text and image
                       CircleAvatar(
                         radius:
                             80, // Adjust the radius to fit the size you want

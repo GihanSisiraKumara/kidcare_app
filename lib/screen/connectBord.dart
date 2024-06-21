@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 
@@ -20,48 +17,6 @@ class RegScreenState extends State<ConnectScreen> {
   TextEditingController address = TextEditingController();
   bool isParent = false;
   bool isChild = false;
-
-  Future<void> insertrecord() async {
-    if (name.text.isNotEmpty &&
-        phone.text.isNotEmpty &&
-        password.text.isNotEmpty &&
-        address.text.isNotEmpty) {
-      try {
-        String tableName = isParent ? "parent" : "children";
-        String uri = "http://10.0.2.2/kidcareuser/insert_record.php";
-        var res = await http.post(Uri.parse(uri), body: {
-          "name": name.text,
-          "phone": phone.text,
-          "password": password.text,
-          "address": address.text,
-          "table_name": tableName,
-        });
-        var response = jsonDecode(res.body);
-        if (response["success"] == "true") {
-          // print("Insert Successful!");
-          // Navigator.push(
-          // context,
-          // MaterialPageRoute(
-          // builder: (context) => const LoginScreen(
-          // title: '',
-          // ),
-          // ),
-          // );
-          QuickAlert.show(
-            context: context,
-            type: QuickAlertType.success,
-            text: 'Transaction Completed Successfully!',
-          );
-        } else {
-          print("Some Issue found!");
-        }
-      } catch (e) {
-        print(e);
-      }
-    } else {
-      print("please fill all the fields");
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -224,7 +179,15 @@ class RegScreenState extends State<ConnectScreen> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                insertrecord();
+                                QuickAlert.show(
+                                  context: context,
+                                  type: QuickAlertType.success,
+                                  text: 'Connect Completed Successfully!',
+                                );
+                                name.clear();
+                                phone.clear();
+                                password.clear();
+                                address.clear();
                               },
                               child: Container(
                                 height: 55,

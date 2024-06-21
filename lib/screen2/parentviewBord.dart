@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kidcare/screen/shedulBord.dart';
 
 class parentviewBord extends StatelessWidget {
   const parentviewBord({super.key, required String title});
@@ -113,33 +112,33 @@ class parentviewBord extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SheduleBord(
-                                  title: '',
-                                )),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(15),
-                      backgroundColor: Colors
-                          .transparent, // Set primary color to transparent
-                      shadowColor: Colors.transparent, // Hide shadow
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const Text(
-                      'Edit Shedule',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
+                  // child: ElevatedButton(
+                  // onPressed: () {
+                  // Navigator.push(
+                  // context,
+                  // MaterialPageRoute(
+                  // builder: (context) => const SheduleBord(
+                  // title: '',
+                  // )),
+                  // );
+                  // },
+                  // style: ElevatedButton.styleFrom(
+                  // padding: const EdgeInsets.all(15),
+                  // backgroundColor: Colors
+                  // .transparent, // Set primary color to transparent
+                  // shadowColor: Colors.transparent, // Hide shadow
+                  // shape: RoundedRectangleBorder(
+                  // borderRadius: BorderRadius.circular(10),
+                  // ),
+                  // ),
+                  // child: const Text(
+                  // 'Edit Shedule',
+                  // style: TextStyle(
+                  // color: Colors.white,
+                  // fontSize: 20,
+                  // ),
+                  // ),
+                  // ),
                 ),
               ],
             ),

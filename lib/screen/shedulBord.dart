@@ -52,6 +52,14 @@ class _SheduleState extends State<SheduleBord> {
             type: QuickAlertType.success,
             text: 'Your Sheduling  is Successfully!',
           );
+          _name.clear();
+          _date.clear();
+          _leaveHome.clear();
+          _arrivalscool.clear();
+          _dispatcherscool.clear();
+          _inhome.clear();
+          _inattenance.clear();
+          _outattenance.clear();
         } else {
           _showErrorDialog(
             'Your sheduling is Unsuccessed!.',

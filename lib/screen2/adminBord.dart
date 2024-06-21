@@ -430,7 +430,7 @@ class adminBord extends StatelessWidget {
                       },
                     ),
                     itemDashboard(
-                      'Shere Location',
+                      'View Location',
                       CupertinoIcons.location,
                       const Color.fromARGB(255, 88, 241, 170),
                       context,

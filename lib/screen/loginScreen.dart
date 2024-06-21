@@ -94,7 +94,7 @@ class LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(width: 20), // Space between text and image
+                      SizedBox(width: 0), // Space between text and image
                       CircleAvatar(
                         radius:
                             80, // Adjust the radius to fit the size you want
