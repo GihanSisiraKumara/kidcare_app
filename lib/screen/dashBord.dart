@@ -72,8 +72,8 @@ class DashBord extends StatelessWidget {
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
-                accountName: const Text('KGM Sisira'),
-                accountEmail: const Text('gihan.sisira@gmail.com'),
+                accountName: const Text('Himantha nanaykkara'),
+                accountEmail: const Text('123@gmail.com'),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Colors.white,
                   child: ClipRRect(
@@ -361,7 +361,7 @@ class DashBord extends StatelessWidget {
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
                   title: const Text(
-                    'Hello Children!',
+                    'Hello Himantha!',
                     style: TextStyle(
                         fontSize: 28,
                         color: Color.fromARGB(255, 252, 249, 249),

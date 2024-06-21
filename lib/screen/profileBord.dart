@@ -40,21 +40,28 @@ class _ProfileBoardState extends State<profileBoard> {
           'Profile',
           style: TextStyle(
               fontSize: 22,
-              color: Color.fromARGB(255, 247, 84, 84),
+              color: Color.fromARGB(255, 250, 202, 202),
               fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           style: ButtonStyle(
-            iconSize: MaterialStateProperty.all<double>(30),
-            iconColor: MaterialStateProperty.all<Color>(
+            iconSize: WidgetStateProperty.all<double>(30),
+            iconColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 252, 251, 251)),
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
                 const Color.fromARGB(255, 234, 117, 117)),
           ),
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xffB81736), Color(0xff281537)],
+            ),
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -92,13 +99,12 @@ class _ProfileBoardState extends State<profileBoard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildProfileItem(
-                      'Name', 'Ahad Hashmi', CupertinoIcons.person),
+                      'Name', 'Himantha nanaykkara', CupertinoIcons.person),
                   _buildProfileItem(
-                      'Phone', '03107085816', CupertinoIcons.phone),
-                  _buildProfileItem('Address', 'abc address, xyz city',
-                      CupertinoIcons.location),
-                  _buildProfileItem('Email', 'ahadhashmideveloper@gmail.com',
-                      CupertinoIcons.mail),
+                      'Phone', '0767301727', CupertinoIcons.phone),
+                  _buildProfileItem(
+                      'Address', '36/A,Minuwanvila', CupertinoIcons.location),
+                  _buildProfileItem('Email', '', CupertinoIcons.mail),
                   _buildProfileItem(
                       'Password', '**************', CupertinoIcons.lock),
                   const SizedBox(height: 20),

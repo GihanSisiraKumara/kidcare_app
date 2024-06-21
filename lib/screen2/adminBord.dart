@@ -67,8 +67,8 @@ class adminBord extends StatelessWidget {
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
-                accountName: const Text('KGM Sisira'),
-                accountEmail: const Text('gihan.sisira@gmail.com'),
+                accountName: const Text('Edirisinha'),
+                accountEmail: const Text('123@.com'),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Colors.white,
                   child: ClipRRect(
@@ -292,7 +292,7 @@ class adminBord extends StatelessWidget {
                 const SizedBox(height: 30),
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: Text('Hello Parents!',
+                  title: Text('Hello Edirisinha!',
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall
